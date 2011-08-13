@@ -31,8 +31,8 @@
 
 // Custom values
 // These values may need to be changed depending on the servo that you are using
-#define SERVO_OPEN 575    // open value of the servo
-#define SERVO_CLOSE 1000  // close value of the servo
+#define SERVO_OPEN 575    // open signal value for the servo
+#define SERVO_CLOSE 1000  // close signal value for the servo
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
