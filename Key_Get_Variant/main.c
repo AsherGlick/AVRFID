@@ -1,11 +1,11 @@
- /****************************************************************************\
-/         This program was written by Asher Glick aglick@tetrakai.com          \
-\             This program is currently under the GNU GPL licence              /
- \****************************************************************************/
+// /****************************************************************************\
+///         This program was written by Asher Glick aglick@tetrakai.com          \
+//\             This program is currently under the GNU GPL licence              /
+// \****************************************************************************/
 
 /****************** CHIP SETTINGS ******************\
 | This program was designed to run on an ATMEGA328  |
-| chip running with an external clock at 8MHz       |
+| chip running without an external clock at 8MHz    |
 \***************************************************/
 
 /********** FUSE SETTINGS **********\
@@ -26,7 +26,7 @@
 | NOTE: when messing with fuses, do this at your own risk. These fuses for the |
 |        ATMEGA328P (ATMEGA328) worked for me, however if they do not work for |
 |        you, it is not my fault                                               |
-| NOTE: '-c usbtiny' is incorrect if you are using a different programmer      |
+| NOTE: '-c usbtiny' may be incorrect if you are using a different programmer  |
 \******************************************************************************/
 
 // Custom values
@@ -38,7 +38,7 @@
 #include <avr/interrupt.h>
 #include <stdlib.h>
 
-#define ARRAYSIZE 900   // Number of RF points to collect each time
+#define ARRAYSIZE 900   // Raw RFID Data Buffer Size
 
 int * begin;            // points to the bigining of the array
 int * names;            // array of valid ID numbers
@@ -47,8 +47,6 @@ volatile int iter;      // the iterator for the placement of count in the array
 volatile int count;     // counts 125kHz pulses
 volatile int lastpulse; // last value of DEMOD_OUT
 volatile int on;        // stores the value of DEMOD_OUT in the interrupt
-
-volatile int lastCount; // stores the previous count for the DEMOD_OUT
 
 /********************************* ADD NAMES *********************************\
 | This function add allocates the ammount of memory that will be needed to    |
@@ -71,29 +69,18 @@ void addNames(void) {
 | 2) Add one to the count (count stores the number of 125kHz pulses in each    |
 |     wave                                                                     |
 \******************************************************************************/
-// * NOTE * //
-// if  this code works then i am fucking awesome
-// i will jump up and down and be awesome... i want it to work
-
-// 8MHz 125khz
 ISR(INT0_vect) {
   //Save the value of DEMOD_OUT to prevent re-reading on the same group
-  on =(PINB & 0x01);                                                         // OP(1)
+  on =(PINB & 0x01); 
   // if wave is rising (end of the last wave)
-  if (on == 0x01 && lastpulse == 0x00 ) {                                    // OP(3)[4]
-    // write the data to the array and reset the count
-    if (count == lastCount || count == 5) {                                  // OP(3)[4]
-      begin[iter] += 1;                                                      // OP(2)[3]
-    }
-    else {
-      iter = iter + 1;                                                       // OP(1)
-      begin[iter] = 1;                                                       // OP(1)[2]
-      lastCount = count;                                                     // OP(1)
-    }
-    count = 0;                                                               // OP(1)
+  if (on == 1 && lastpulse == 0 ) {
+    // write the data to the array and reset the cound
+    begin[iter] = count;
+    count = 0;
+    iter = iter + 1;
   }
-  count = count + 1;                                                         // OP(1)
-  lastpulse = on;                                                            // OP(1)
+  count = count + 1;
+  lastpulse = on;
 }
 
 /************************************ WAIT ************************************\
@@ -173,10 +160,27 @@ void analizeInput (void) {
   for (i = 0; i < 45; i++) {
     finalArray[i] = 2;
   }
-  ////////////////////////////INTERRUPT CODE IS DIFFERENT/////////////////////////////////////////////////
-  /////////////////////////////////////THIS FUNCTION NEEDS TO CHANGE//////////////////////////////////////
+  
   //------------------------------------------
-  // Find Start Tag
+  // Convert raw data to binary
+  //------------------------------------------
+  for (i = 1; i < ARRAYSIZE; i++) {
+    if (begin[i] == 5) {
+      begin[i] = 0;
+    }
+    else if (begin[i] == 7) {
+      begin[i] = 1;
+    }
+    else if (begin[i] == 6) {
+       begin[i] = begin[i-1];
+    }
+    else {
+      begin[i] = -2;
+    }
+  }
+    
+  //------------------------------------------
+  // Find Start Label
   //------------------------------------------
   for (i = 0; i < ARRAYSIZE; i++) {
     if (begin [i] == lastVal) {
@@ -257,8 +261,13 @@ void analizeInput (void) {
     finalArray_index++;
   }
   
+  
+  //------------------------------------------
+  // SERVO MECHANICS
+  //------------------------------------------
   if (searchTag(convertInput (finalArray))){
-    PORTB |= 0x04;
+    PORTB |= 0x04; // Green Light
+    
     // open the door
     OCR1A = 10000 - SERVO_OPEN;
     {
@@ -274,14 +283,14 @@ void analizeInput (void) {
     {
       unsigned long i;
       for (i = 0; i < 500000; i++) {
-      asm volatile ("nop");
+        asm volatile ("nop");
       }
     }
     OCR1A = 0;
     wait (5000);
   }
   else {
-    PORTB |= 0x08;
+    PORTB |= 0x08;//Red Light
     wait (5000);
   }
 }
@@ -295,7 +304,7 @@ int main (void) {
   int i = 0;
 
   //------------------------------------------
-  // VARIABLE INITLILIZATION
+  // INITLILIZATION
   //------------------------------------------
 
   // Load the list of valid ID tags
@@ -308,7 +317,7 @@ int main (void) {
   //=========> SERVO INITILIZATION <=========//
   ICR1 = 10000;// TOP count for the PWM TIMER
   
-  // Set on match, clear on TOP
+  // Set timer on match, clear on TOP
   TCCR1A  = ((1 << COM1A1) | (1 << COM1A0));
   TCCR1B  = ((1 << CS11) | (1 << WGM13));
   
@@ -343,8 +352,10 @@ int main (void) {
     //enable interrupts
     sei();
     
-    while (1) { // while the card is being read
-      if (iter >= ARRAYSIZE) { // if the buffer is full
+    // while the card is being read
+    while (1) {
+      // if the buffer is full
+      if (iter >= ARRAYSIZE) {
         cli(); // disable interrupts
         break; // continue to analize the buffer
       }
