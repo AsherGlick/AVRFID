@@ -78,21 +78,21 @@ void addNames(void) {
 // 8MHz 125khz
 ISR(INT0_vect) {
   //Save the value of DEMOD_OUT to prevent re-reading on the same group
-  on =(PINB & 0x01);                                                         // OP(1)
+  on =(PINB & 0x01);                                                         // OP(1)   2  2
   // if wave is rising (end of the last wave)
-  if (on == 0x01 && lastpulse == 0x00 ) {                                    // OP(3)[4]
+  if (on == 0x01 && lastpulse == 0x00 ) {                                    // OP(3)[4]6  8
     // write the data to the array and reset the count
-    if (count == lastCount || count == 5) {                                  // OP(3)[4]
-      begin[iter] += 1;                                                      // OP(2)[3]
+    if (count == lastCount || count == 5) {                                  // OP(3)[4]6  14
+      begin[iter] += 1;                                                      // OP(2)[3]4  18
     }
     else {
-      iter = iter + 1;                                                       // OP(1)
-      begin[iter] = 1;                                                       // OP(1)[2]
-      lastCount = count;                                                     // OP(1)
+      iter = iter + 1;                                                       // OP(1)   2  20
+      begin[iter] = 1;                                                       // OP(1)[2]3  23
+      lastCount = count;                                                     // OP(1)   3  26
     }
-    count = 0;                                                               // OP(1)
+    count = 0;                                                               // OP(1)   2  28
   }
-  count = count + 1;                                                         // OP(1)
+  count = count + 1;                                                         // OP(1)   
   lastpulse = on;                                                            // OP(1)
 }
 
