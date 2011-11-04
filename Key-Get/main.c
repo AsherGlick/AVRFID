@@ -72,7 +72,7 @@ void addNames(void) {
   namesize = 31;
   names = malloc (sizeof(int) * namesize);
   names [0] = 12345;
-  names [1] = 09876;
+  names [1] = 19876;
 }
 
 /******************************* INT0 INTERRUPT *******************************\
