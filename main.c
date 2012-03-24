@@ -136,9 +136,9 @@ int searchTag (int tag) {
 }
 
 
-void convertRawDataToBinary (int * buffer) {
+void convertRawDataToBinary () {
   int i;
-  for (i = 1; i < ARRAYSIZE; i++) {
+  /*for (i = 1; i < ARRAYSIZE; i++) {
     if (buffer[i] == 5) {
       buffer[i] = 0;
     }
@@ -150,6 +150,20 @@ void convertRawDataToBinary (int * buffer) {
     }
     else {
       buffer[i] = -2;
+    }
+  }*/
+  for (i = 1; i < ARRAYSIZE; i++) {
+    if (begin[i] == 5) {
+      begin[i] = 0;
+    }
+    else if (begin[i] == 7) {
+      begin[i] = 1;
+    }
+    else if (begin[i] == 6) {
+       begin[i] = begin[i-1];
+    }
+    else {
+      begin[i] = -2;
     }
   }
 }
@@ -178,11 +192,27 @@ void analizeInput (void) {
   for (i = 0; i < 45; i++) {
     finalArray[i] = 2;
   }
-  convertRawDataToBinary (begin);
+  
   //------------------------------------------
   // Convert raw data to binary
   //------------------------------------------
-  
+  //convertRawDataToBinary ();
+  //*
+  for (i = 1; i < ARRAYSIZE; i++) {
+    if (begin[i] == 5) {
+      begin[i] = 0;
+    }
+    else if (begin[i] == 7) {
+      begin[i] = 1;
+    }
+    else if (begin[i] == 6) {
+       begin[i] = begin[i-1];
+    }
+    else {
+      begin[i] = -2;
+    }
+  }
+  /**/
     
   //------------------------------------------
   // Find Start Tag
