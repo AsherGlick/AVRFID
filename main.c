@@ -92,7 +92,64 @@ void wait (unsigned long time) {
     asm volatile ("nop");
   }
 }
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+/******************************** USART CONFIG ********************************\
+| USART_Init(void) initilizes the USART feature, this function needs to be run |
+| before any USART functions are used, this function configures the BAUD rate  |
+| for the USART and enables the format for transmission                        |
+\******************************************************************************/
+#define FOSC 8000000 // Clock Speed of the procesor
+#define BAUD 19200    // Baud rate (to change the BAUD rate change this variable
+#define MYUBRR FOSC/16/BAUD-1 // calculate the number the processor needs
+void USART_Init(void) {
+  unsigned int ubrr = MYUBRR;
+  /*Set baud rate */
+  UBRR0H = (unsigned char)(ubrr>>8);
+  UBRR0L = (unsigned char)ubrr;
+  /*Enable receiver and transmitter */
+  UCSR0B = (1<<RXEN0)|(1<<TXEN0);
+  /* Set frame format: 8data, 2stop bit */
+  UCSR0C = (1<<USBS0)|(3<<UCSZ00);
+}
 
+/******************************* USART_Transmit *******************************\
+| The USART_Transmit(int) function allows you to send numbers to USART serial  |
+| This function only handles numbers up to two digits. If there is one digit   |
+| the message contains a space, then the digit converted to ascii. If there    |
+| are two digits then the message is the first digit followed by the seccond   |
+| If the input is negative then the function will output a newline character   |
+\******************************************************************************/
+void USART_Transmit( int input )
+{
+  unsigned char data;
+  if (input == -1) {
+    while ( !( UCSR0A & (1<<UDRE0)) );
+    // Put '\n' into the bufffer to send
+    UDR0 = '\r';
+    //dont continue running the function to prevent outputing E
+    // Wait for empty transmit buffer
+    while ( !( UCSR0A & (1<<UDRE0)) );
+    // Put '\n' into the bufffer to send
+    UDR0 = '\n';
+    //dont continue running the function to prevent outputing E
+    return;
+  }
+  else if (input < 10 && input >= 0) {     
+    while ( !( UCSR0A & (1<<UDRE0)) );
+    data = '0' + input;
+    UDR0 = data;
+  }
+  else {
+    // Output E if the number cannot be outputed
+    UDR0 = 'E';
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 /*************************** GET UNIQUE ID FROM HEX ***************************\
 | This function converts the 45 bit input (ints representing bools) into the   |
 | decimal number represented on the card. It strips off the first 28 bits      |
@@ -101,22 +158,22 @@ void wait (unsigned long time) {
 \******************************************************************************/
 int getUniqueIdDecimalFromHex (int array[45]) {
   int result = 0;
-  if (array[28]) result += 32768;
-  if (array[29]) result += 16348;
-  if (array[30]) result += 8192;
-  if (array[31]) result += 4096;
-  if (array[32]) result += 2048;
-  if (array[33]) result += 1024;
-  if (array[34]) result += 512;
-  if (array[35]) result += 256;
-  if (array[36]) result += 128;
-  if (array[37]) result += 64;
-  if (array[38]) result += 32;
-  if (array[39]) result += 16;
-  if (array[40]) result += 8;
-  if (array[41]) result += 4;
-  if (array[42]) result += 2;
-  if (array[43]) result += 1;
+  if (array[28]) result += 32768; //0
+  if (array[29]) result += 16384; //1
+  if (array[30]) result += 8192;  //0
+  if (array[31]) result += 4096;  //0
+  if (array[32]) result += 2048;  //1
+  if (array[33]) result += 1024;  //0
+  if (array[34]) result += 512;   //1
+  if (array[35]) result += 256;   //1
+  if (array[36]) result += 128;   //0
+  if (array[37]) result += 64;    //0
+  if (array[38]) result += 32;    //1
+  if (array[39]) result += 16;    //0
+  if (array[40]) result += 8;     //0
+  if (array[41]) result += 4;     //1
+  if (array[42]) result += 2;     //0
+  if (array[43]) result += 1;     //0
   return result;
 }
 
@@ -265,7 +322,13 @@ void analizeInput (void) {
     }
     finalArray_index++;
   }
-  
+  #define serialOut
+  #ifdef serialOut
+  for (i = 0; i < 44; i++) {
+    USART_Transmit(finalArray[i]);
+  }
+  USART_Transmit(-1);
+  #endif
   if (searchTag(getUniqueIdDecimalFromHex (finalArray))){
     PORTB |= 0x04;
     // open the door
@@ -330,6 +393,9 @@ int main (void) {
   }
   // Set servo to idle
   OCR1A = 0;
+  
+  // USART INITILIZATION
+  USART_Init();
   
   //========> VARIABLE INITILIZATION <=======//
   count = 0;
