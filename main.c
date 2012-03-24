@@ -40,7 +40,7 @@
 
 #define ARRAYSIZE 900   // Number of RF points to collect each time
 
-int * begin;            // points to the bigining of the array
+char * begin;            // points to the bigining of the array
 int * names;            // array of valid ID numbers
 int namesize;           // size of array of valid ID numbers
 volatile int iter;      // the iterator for the placement of count in the array
