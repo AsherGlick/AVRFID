@@ -215,7 +215,64 @@ void convertRawDataToBinary (char * buffer) {
   }
 }
 
-int findStartTag () {
+int findStartTag (char * buffer) {
+  int i;
+  int inARow = 0;
+  int lastVal = 0;
+  for (i = 0; i < ARRAYSIZE; i++) {
+    if (buffer [i] == lastVal) {
+      inARow++;
+    }
+    else {
+      // End of the group of bits with the same value
+      if (inARow >= 15 && lastVal == 1) {
+        // Start tag found
+        break;
+      }
+      // group of bits was not a start tag, search next tag
+      inARow = 1;
+      lastVal = buffer[i];
+    }
+  }
+  return i;
+}
+void parseMultiBitToSingleBit (char * buffer, int startOffset, int outputBuffer[]) {
+  int i = startOffset;
+  int lastVal = 0;
+  int inARow = 0; // this may need to be 1
+  int resultArray_index = 0;
+  for (;i < ARRAYSIZE; i++) {
+    if (buffer [i] == lastVal) {
+      inARow++;
+    }
+    else {
+      // End of the group of bits with the same value
+      if (inARow >= 4 && inARow <= 8) {
+        // there are between 4 and 8 bits of the same value in a row
+        // Add one bit to the resulting array
+        outputBuffer[resultArray_index] = lastVal;
+        resultArray_index += 1;
+      }
+      else if (inARow >= 9 && inARow <= 14) {
+        // there are between 9 and 14 bits of the same value in a row
+        // Add two bits to the resulting array
+        outputBuffer[resultArray_index] = lastVal;
+        outputBuffer[resultArray_index+1] = lastVal;
+        resultArray_index += 2;
+      }
+      else if (inARow >= 15 && lastVal == 0) {
+        // there are more then 15 identical bits in a row, and they are 0s
+        // this is an end tag
+        break;
+      }
+      // group of bits was not the end tag, continue parsing data
+      inARow = 1;
+      lastVal = buffer[i];
+      if (resultArray_index >= 90) {
+        //return;
+      }
+    }
+  }
 }
 /******************************* Analize Input *******************************\
 | analizeInput(void) parses through the global variable and gets the 45 bit   |
@@ -251,27 +308,14 @@ void analizeInput (void) {
   //------------------------------------------
   // Find Start Tag
   //------------------------------------------
-  for (i = 0; i < ARRAYSIZE; i++) {
-    if (begin [i] == lastVal) {
-      inARow++;
-    }
-    else {
-      // End of the group of bits with the same value
-      if (inARow >= 15 && lastVal == 1) {
-        // Start tag found
-        break;
-      }
-      // group of bits was not a start tag, search next tag
-      inARow = 1;
-      lastVal = begin[i];
-    }
-  }
-  int startOffset = i;
+  int startOffset = findStartTag(begin);
   PORTB |= 0x10;
-  
+  i = startOffset;
   //------------------------------------------
   // PARSE TO BIT DATA
   //------------------------------------------
+  parseMultiBitToSingleBit(begin, startOffset, resultArray);
+  /*
   for (;i < ARRAYSIZE; i++) {
     if (begin [i] == lastVal) {
       inARow++;
@@ -303,7 +347,7 @@ void analizeInput (void) {
         //return;
       }
     }
-  }
+  }*/
   
   // Error checking
   for (i = 0; i < 88; i++) { // ignore the parody bit ([88] and [89])
