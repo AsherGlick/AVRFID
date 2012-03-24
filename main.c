@@ -261,7 +261,7 @@ void analizeInput (void) {
     finalArray_index++;
   }
   
-  if (searchTag(convertInput (finalArray))){
+  if (searchTag(getUniqueIdDecimalFromHex (finalArray))){
     PORTB |= 0x04;
     // open the door
     OCR1A = 10000 - SERVO_OPEN;
