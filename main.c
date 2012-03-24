@@ -40,7 +40,7 @@
 
 #define ARRAYSIZE 900   // Number of RF points to collect each time
 
-char * begin;            // points to the bigining of the array
+char * begin;           // points to the bigining of the array
 int * names;            // array of valid ID numbers
 int namesize;           // size of array of valid ID numbers
 volatile int iter;      // the iterator for the placement of count in the array
@@ -214,7 +214,9 @@ void convertRawDataToBinary (char * buffer) {
     }
   }
 }
-
+/******************************* FIND START TAG *******************************\
+|
+\******************************************************************************/
 int findStartTag (char * buffer) {
   int i;
   int inARow = 0;
@@ -236,10 +238,13 @@ int findStartTag (char * buffer) {
   }
   return i;
 }
+/************************ PARSE MULTIBIT TO SINGLE BIT ************************\
+|
+\******************************************************************************/
 void parseMultiBitToSingleBit (char * buffer, int startOffset, int outputBuffer[]) {
-  int i = startOffset;
-  int lastVal = 0;
-  int inARow = 0; // this may need to be 1
+  int i = startOffset; // the offset value of the start tag
+  int lastVal = 0; // what was the value of the last bit
+  int inARow = 0; // how many identical bits are in a row// this may need to be 1 but seems to work fine
   int resultArray_index = 0;
   for (;i < ARRAYSIZE; i++) {
     if (buffer [i] == lastVal) {
@@ -306,52 +311,17 @@ void analizeInput (void) {
   // Find Start Tag
   //------------------------------------------
   int startOffset = findStartTag(begin);
-  PORTB |= 0x10;
+  PORTB |= 0x10; // turn an led on on pin B5)
   //------------------------------------------
   // PARSE TO BIT DATA
   //------------------------------------------
   parseMultiBitToSingleBit(begin, startOffset, resultArray);
-  /*
-  for (;i < ARRAYSIZE; i++) {
-    if (begin [i] == lastVal) {
-      inARow++;
-    }
-    else {
-      // End of the group of bits with the same value
-      if (inARow >= 4 && inARow <= 8) {
-        // there are between 4 and 8 bits of the same value in a row
-        // Add one bit to the resulting array
-        resultArray[resultArray_index] = lastVal;
-        resultArray_index += 1;
-      }
-      else if (inARow >= 9 && inARow <= 14) {
-        // there are between 9 and 14 bits of the same value in a row
-        // Add two bits to the resulting array
-        resultArray[resultArray_index] = lastVal;
-        resultArray[resultArray_index+1] = lastVal;
-        resultArray_index += 2;
-      }
-      else if (inARow >= 15 && lastVal == 0) {
-        // there are more then 15 identical bits in a row, and they are 0s
-        // this is an end tag
-        break;
-      }
-      // group of bits was not the end tag, continue parsing data
-      inARow = 1;
-      lastVal = begin[i];
-      if (resultArray_index >= 90) {
-        //return;
-      }
-    }
-  }*/
-  
   // Error checking
   for (i = 0; i < 88; i++) { // ignore the parody bit ([88] and [89])
     if (resultArray[i] == 2) {
       return;
     }
   }
-  
   //------------------------------------------
   // MANCHESTER DECODING
   //------------------------------------------
@@ -461,8 +431,7 @@ int main (void) {
   // MAIN LOOP
   //------------------------------------------
   while (1) {
-    //enable interrupts
-    sei();
+    sei(); //enable interrupts
     
     while (1) { // while the card is being read
       if (iter >= ARRAYSIZE) { // if the buffer is full
