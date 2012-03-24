@@ -1,6 +1,6 @@
  /****************************************************************************\ 
- |         This program was written by Asher Glick aglick@tetrakai.com         | 
- |             This program is currently under the GNU GPL licence             |
+ |         This program was written by Asher Glick aglick@tetrakai.com        | 
+ |             This program is currently under the GNU GPL licence            |
  \****************************************************************************/
 
 /****************** CHIP SETTINGS ******************\
