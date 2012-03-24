@@ -136,9 +136,9 @@ int searchTag (int tag) {
 }
 
 
-void convertRawDataToBinary () {
+void convertRawDataToBinary (char * buffer) {
   int i;
-  /*for (i = 1; i < ARRAYSIZE; i++) {
+  for (i = 1; i < ARRAYSIZE; i++) {
     if (buffer[i] == 5) {
       buffer[i] = 0;
     }
@@ -151,7 +151,8 @@ void convertRawDataToBinary () {
     else {
       buffer[i] = -2;
     }
-  }*/
+  }
+  /*
   for (i = 1; i < ARRAYSIZE; i++) {
     if (begin[i] == 5) {
       begin[i] = 0;
@@ -166,6 +167,7 @@ void convertRawDataToBinary () {
       begin[i] = -2;
     }
   }
+  */
 }
 /******************************* Analize Input *******************************\
 | analizeInput(void) parses through the global variable and gets the 45 bit   |
@@ -196,8 +198,8 @@ void analizeInput (void) {
   //------------------------------------------
   // Convert raw data to binary
   //------------------------------------------
-  //convertRawDataToBinary ();
-  //*
+  convertRawDataToBinary (begin);
+  /*
   for (i = 1; i < ARRAYSIZE; i++) {
     if (begin[i] == 5) {
       begin[i] = 0;
