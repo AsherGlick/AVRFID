@@ -93,6 +93,10 @@ void wait (unsigned long time) {
   }
 }
 
+  //////////////////////////////////////////////////////////////////////////////
+ //////////////////////////// SERIAL COMMUNICATION ////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
 /******************************** USART CONFIG ********************************\
 | USART_Init(void) initilizes the USART feature, this function needs to be run |
 | before any USART functions are used, this function configures the BAUD rate  |
@@ -186,8 +190,13 @@ int searchTag (int tag) {
   }
   return 0;
 }
+  //////////////////////////////////////////////////////////////////////////////
+ ///////////////////////////// ANALYSIS FUNCTIONS /////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 
-
+/************************* CONVERT RAW DATA TO BINARY *************************\
+| Converts the raw 'pulse per wave' count (5,6,or 7) to binary data (0, or 1)  |
+\******************************************************************************/
 void convertRawDataToBinary (char * buffer) {
   int i;
   for (i = 1; i < ARRAYSIZE; i++) {
@@ -204,6 +213,9 @@ void convertRawDataToBinary (char * buffer) {
       buffer[i] = -2;
     }
   }
+}
+
+int findStartTag () {
 }
 /******************************* Analize Input *******************************\
 | analizeInput(void) parses through the global variable and gets the 45 bit   |
@@ -254,7 +266,7 @@ void analizeInput (void) {
       lastVal = begin[i];
     }
   }
-  int start = i;
+  int startOffset = i;
   PORTB |= 0x10;
   
   //------------------------------------------
