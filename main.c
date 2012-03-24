@@ -135,6 +135,24 @@ int searchTag (int tag) {
   return 0;
 }
 
+
+void convertRawDataToBinary (int * buffer) {
+  int i;
+  for (i = 1; i < ARRAYSIZE; i++) {
+    if (begin[i] == 5) {
+      begin[i] = 0;
+    }
+    else if (begin[i] == 7) {
+      begin[i] = 1;
+    }
+    else if (begin[i] == 6) {
+       begin[i] = begin[i-1];
+    }
+    else {
+      begin[i] = -2;
+    }
+  }
+}
 /******************************* Analize Input *******************************\
 | analizeInput(void) parses through the global variable and gets the 45 bit   |
 | id tag.                                                                     |
@@ -160,24 +178,11 @@ void analizeInput (void) {
   for (i = 0; i < 45; i++) {
     finalArray[i] = 2;
   }
-  
+  convertRawDataToBinary (begin);
   //------------------------------------------
   // Convert raw data to binary
   //------------------------------------------
-  for (i = 1; i < ARRAYSIZE; i++) {
-    if (begin[i] == 5) {
-      begin[i] = 0;
-    }
-    else if (begin[i] == 7) {
-      begin[i] = 1;
-    }
-    else if (begin[i] == 6) {
-       begin[i] = begin[i-1];
-    }
-    else {
-      begin[i] = -2;
-    }
-  }
+  
     
   //------------------------------------------
   // Find Start Tag
@@ -289,7 +294,6 @@ void analizeInput (void) {
     wait (5000);
   }
 }
-
 
 /******************************* MAIN FUNCTION *******************************\
 | This is the main function, it initilized the variabls and then waits for    |
