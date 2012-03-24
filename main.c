@@ -215,7 +215,9 @@ void convertRawDataToBinary (char * buffer) {
   }
 }
 /******************************* FIND START TAG *******************************\
-|
+| This function goes through the buffer and tries to find a group of fifteen   |
+| or more 1's in a row. This sigifies the start tag. If you took the fifteen   |
+| ones in multibit they would come out to be '111' in single-bit               |
 \******************************************************************************/
 int findStartTag (char * buffer) {
   int i;
