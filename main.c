@@ -139,17 +139,17 @@ int searchTag (int tag) {
 void convertRawDataToBinary (int * buffer) {
   int i;
   for (i = 1; i < ARRAYSIZE; i++) {
-    if (begin[i] == 5) {
-      begin[i] = 0;
+    if (buffer[i] == 5) {
+      buffer[i] = 0;
     }
-    else if (begin[i] == 7) {
-      begin[i] = 1;
+    else if (buffer[i] == 7) {
+      buffer[i] = 1;
     }
-    else if (begin[i] == 6) {
-       begin[i] = begin[i-1];
+    else if (buffer[i] == 6) {
+       buffer[i] = buffer[i-1];
     }
     else {
-      begin[i] = -2;
+      buffer[i] = -2;
     }
   }
 }
