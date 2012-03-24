@@ -307,7 +307,6 @@ void analizeInput (void) {
   //------------------------------------------
   int startOffset = findStartTag(begin);
   PORTB |= 0x10;
-  i = startOffset;
   //------------------------------------------
   // PARSE TO BIT DATA
   //------------------------------------------
