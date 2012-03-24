@@ -57,7 +57,7 @@ void addNames(void) {
   namesize = 2; // number of IDs in the access list
   names = malloc (sizeof(int) * namesize);
   // change or add more IDs after this point
-  names [0] = 46155;
+  names [0] = 12345;
   names [1] = 56101;
 }
 
@@ -92,9 +92,7 @@ void wait (unsigned long time) {
     asm volatile ("nop");
   }
 }
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
+
 /******************************** USART CONFIG ********************************\
 | USART_Init(void) initilizes the USART feature, this function needs to be run |
 | before any USART functions are used, this function configures the BAUD rate  |
@@ -147,9 +145,6 @@ void USART_Transmit( int input )
   }
 }
 
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
 /*************************** GET UNIQUE ID FROM HEX ***************************\
 | This function converts the 45 bit input (ints representing bools) into the   |
 | decimal number represented on the card. It strips off the first 28 bits      |
@@ -158,22 +153,22 @@ void USART_Transmit( int input )
 \******************************************************************************/
 int getUniqueIdDecimalFromHex (int array[45]) {
   int result = 0;
-  if (array[28]) result += 32768; //0
-  if (array[29]) result += 16384; //1
-  if (array[30]) result += 8192;  //0
-  if (array[31]) result += 4096;  //0
-  if (array[32]) result += 2048;  //1
-  if (array[33]) result += 1024;  //0
-  if (array[34]) result += 512;   //1
-  if (array[35]) result += 256;   //1
-  if (array[36]) result += 128;   //0
-  if (array[37]) result += 64;    //0
-  if (array[38]) result += 32;    //1
-  if (array[39]) result += 16;    //0
-  if (array[40]) result += 8;     //0
-  if (array[41]) result += 4;     //1
-  if (array[42]) result += 2;     //0
-  if (array[43]) result += 1;     //0
+  if (array[28]) result += 32768;
+  if (array[29]) result += 16384;
+  if (array[30]) result += 8192;
+  if (array[31]) result += 4096;
+  if (array[32]) result += 2048;
+  if (array[33]) result += 1024;
+  if (array[34]) result += 512;
+  if (array[35]) result += 256;
+  if (array[36]) result += 128;
+  if (array[37]) result += 64;
+  if (array[38]) result += 32;
+  if (array[39]) result += 16;
+  if (array[40]) result += 8;
+  if (array[41]) result += 4;
+  if (array[42]) result += 2;
+  if (array[43]) result += 1;
   return result;
 }
 
