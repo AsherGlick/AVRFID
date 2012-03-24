@@ -1,0 +1,2029 @@
+GAS LISTING /tmp/ccnSCpy9.s 			page 1
+
+
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__ = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.stabs	"/home/elhim/Code/projects/AVRFID/Key-Get/",100,0,2,.Ltext0
+   9               		.stabs	"main.c",100,0,2,.Ltext0
+  10               		.text
+  11               	.Ltext0:
+  12               		.stabs	"gcc2_compiled.",60,0,0,0
+  13               		.stabs	"int:t(0,1)=r(0,1);-32768;32767;",128,0,0,0
+  14               		.stabs	"char:t(0,2)=@s8;r(0,2);0;255;",128,0,0,0
+  15               		.stabs	"long int:t(0,3)=@s32;r(0,3);020000000000;017777777777;",128,0,0,0
+  16               		.stabs	"unsigned int:t(0,4)=r(0,4);0;0177777;",128,0,0,0
+  17               		.stabs	"long unsigned int:t(0,5)=@s32;r(0,5);0;037777777777;",128,0,0,0
+  18               		.stabs	"long long int:t(0,6)=@s64;r(0,6);01000000000000000000000;0777777777777777777777;",128,0,0,
+  19               		.stabs	"long long unsigned int:t(0,7)=@s64;r(0,7);0;01777777777777777777777;",128,0,0,0
+  20               		.stabs	"short int:t(0,8)=r(0,8);-32768;32767;",128,0,0,0
+  21               		.stabs	"short unsigned int:t(0,9)=r(0,9);0;0177777;",128,0,0,0
+  22               		.stabs	"signed char:t(0,10)=@s8;r(0,10);-128;127;",128,0,0,0
+  23               		.stabs	"unsigned char:t(0,11)=@s8;r(0,11);0;255;",128,0,0,0
+  24               		.stabs	"float:t(0,12)=r(0,1);4;0;",128,0,0,0
+  25               		.stabs	"double:t(0,13)=r(0,1);4;0;",128,0,0,0
+  26               		.stabs	"long double:t(0,14)=r(0,1);4;0;",128,0,0,0
+  27               		.stabs	"void:t(0,15)=(0,15)",128,0,0,0
+  28               		.stabs	"/usr/lib/gcc/avr/4.5.3/../../../avr/include/avr/io.h",130,0,0,0
+  29               		.stabs	"/usr/lib/gcc/avr/4.5.3/../../../avr/include/avr/sfr_defs.h",130,0,0,0
+  30               		.stabs	"/usr/lib/gcc/avr/4.5.3/../../../avr/include/inttypes.h",130,0,0,0
+  31               		.stabs	"/usr/lib/gcc/avr/4.5.3/include/stdint.h",130,0,0,0
+  32               		.stabs	"/usr/lib/gcc/avr/4.5.3/../../../avr/include/stdint.h",130,0,0,0
+  33               		.stabs	"int8_t:t(5,1)=(0,10)",128,0,121,0
+  34               		.stabs	"uint8_t:t(5,2)=(0,11)",128,0,122,0
+  35               		.stabs	"int16_t:t(5,3)=(0,1)",128,0,123,0
+  36               		.stabs	"uint16_t:t(5,4)=(0,4)",128,0,124,0
+  37               		.stabs	"int32_t:t(5,5)=(0,3)",128,0,125,0
+  38               		.stabs	"uint32_t:t(5,6)=(0,5)",128,0,126,0
+  39               		.stabs	"int64_t:t(5,7)=(0,6)",128,0,128,0
+  40               		.stabs	"uint64_t:t(5,8)=(0,7)",128,0,129,0
+  41               		.stabs	"intptr_t:t(5,9)=(5,3)",128,0,142,0
+  42               		.stabs	"uintptr_t:t(5,10)=(5,4)",128,0,147,0
+  43               		.stabs	"int_least8_t:t(5,11)=(5,1)",128,0,159,0
+  44               		.stabs	"uint_least8_t:t(5,12)=(5,2)",128,0,164,0
+  45               		.stabs	"int_least16_t:t(5,13)=(5,3)",128,0,169,0
+  46               		.stabs	"uint_least16_t:t(5,14)=(5,4)",128,0,174,0
+  47               		.stabs	"int_least32_t:t(5,15)=(5,5)",128,0,179,0
+  48               		.stabs	"uint_least32_t:t(5,16)=(5,6)",128,0,184,0
+  49               		.stabs	"int_least64_t:t(5,17)=(5,7)",128,0,192,0
+  50               		.stabs	"uint_least64_t:t(5,18)=(5,8)",128,0,199,0
+  51               		.stabs	"int_fast8_t:t(5,19)=(5,1)",128,0,213,0
+  52               		.stabs	"uint_fast8_t:t(5,20)=(5,2)",128,0,218,0
+  53               		.stabs	"int_fast16_t:t(5,21)=(5,3)",128,0,223,0
+  54               		.stabs	"uint_fast16_t:t(5,22)=(5,4)",128,0,228,0
+  55               		.stabs	"int_fast32_t:t(5,23)=(5,5)",128,0,233,0
+  56               		.stabs	"uint_fast32_t:t(5,24)=(5,6)",128,0,238,0
+  57               		.stabs	"int_fast64_t:t(5,25)=(5,7)",128,0,246,0
+GAS LISTING /tmp/ccnSCpy9.s 			page 2
+
+
+  58               		.stabs	"uint_fast64_t:t(5,26)=(5,8)",128,0,253,0
+  59               		.stabs	"intmax_t:t(5,27)=(5,7)",128,0,273,0
+  60               		.stabs	"uintmax_t:t(5,28)=(5,8)",128,0,278,0
+  61               		.stabn	162,0,0,0
+  62               		.stabn	162,0,0,0
+  63               		.stabs	"int_farptr_t:t(3,1)=(5,5)",128,0,77,0
+  64               		.stabs	"uint_farptr_t:t(3,2)=(5,6)",128,0,81,0
+  65               		.stabn	162,0,0,0
+  66               		.stabn	162,0,0,0
+  67               		.stabs	"/usr/lib/gcc/avr/4.5.3/../../../avr/include/avr/fuse.h",130,0,0,0
+  68               		.stabs	"__fuse_t:t(6,1)=(6,2)=s3low:(0,11),0,8;high:(0,11),8,8;extended:(0,11),16,8;;",128,0,244,0
+  69               		.stabn	162,0,0,0
+  70               		.stabn	162,0,0,0
+  71               		.stabs	"/usr/lib/gcc/avr/4.5.3/../../../avr/include/stdlib.h",130,0,0,0
+  72               		.stabs	"/usr/lib/gcc/avr/4.5.3/include/stddef.h",130,0,0,0
+  73               		.stabs	"size_t:t(8,1)=(0,4)",128,0,211,0
+  74               		.stabs	"wchar_t:t(8,2)=(0,1)",128,0,323,0
+  75               		.stabn	162,0,0,0
+  76               		.stabs	"div_t:t(7,1)=(7,2)=s4quot:(0,1),0,16;rem:(0,1),16,16;;",128,0,71,0
+  77               		.stabs	"ldiv_t:t(7,3)=(7,4)=s8quot:(0,3),0,32;rem:(0,3),32,32;;",128,0,77,0
+  78               		.stabs	"__compar_fn_t:t(7,5)=(7,6)=*(7,7)=f(0,1)",128,0,80,0
+  79               		.stabn	162,0,0,0
+  80               		.stabs	"addNames:F(0,15)",36,0,71,addNames
+  81               	.global	addNames
+  82               		.type	addNames, @function
+  83               	addNames:
+  84               		.stabd	46,0,0
+   1:main.c        **** /*****************************************************************************\
+   2:main.c        **** | This program was written by Asher Glick, This program is provided ASIS, any | 
+   3:main.c        **** | complaints should be addressed to /dev/null. Any comments about how to make |
+   4:main.c        **** | the program better should be addressed to aglick@tetrakai.com do not get    |
+   5:main.c        **** | those confused. I put alot of work into this code and I enjoy working on it |
+   6:main.c        **** | if you have gotten you hands on this code without permission, you are lazy  |
+   7:main.c        **** | and should do this yourself. If this code is found online remove it         |
+   8:main.c        **** | instantly, it does not belong there. Due to security issues, please do not  |
+   9:main.c        **** | distribute this code to other people or enteties. All aspects of the RFID   |
+  10:main.c        **** | reader may be shared freely except for this code, thank you and enjoy       |
+  11:main.c        **** | a life of goodness and access                                               |
+  12:main.c        **** \*****************************************************************************/
+  13:main.c        **** 
+  14:main.c        **** /**************** OPEN SOURCE *************************************************\
+  15:main.c        **** | As per recent incedents, I have decided to open this code to the public.     |
+  16:main.c        **** | This code will now fall under the BSD licence wich you can view in ./LICENCE |
+  17:main.c        **** | file. Have a nice day. As of the date of writing (March 6, 2011) the source  |
+  18:main.c        **** | has been compleetly open sourced, however it has not been made into a format |
+  19:main.c        **** | that can be easily understood. The complete documentation will be released   |
+  20:main.c        **** | at the end of May 2011. Thanks for your support and happy hacking            |
+  21:main.c        **** \******************************************************************************/
+  22:main.c        **** 
+  23:main.c        **** /****************** CHIP SETTINGS ******************\
+  24:main.c        **** | This program was designed to run on an ATMEGA328  |
+  25:main.c        **** | chip running with an external clock at 8MHz       |
+  26:main.c        **** \***************************************************/
+  27:main.c        **** 
+  28:main.c        **** /********** FUSE SETTINGS **********\
+  29:main.c        **** |   Low Fuse 0xE2                   |
+  30:main.c        **** |  High Fuse 0xD9                   |       +- AVRDUDE COMMANDS -+
+GAS LISTING /tmp/ccnSCpy9.s 			page 3
+
+
+  31:main.c        **** | Extra Fuse 0x07                   |       | -U lfuse:w:0xe0:m  |
+  32:main.c        **** |                                   |       | -U hfuse:w:0xd9:m  |
+  33:main.c        **** | These fuse calculations are       |       | -U efuse:w:0xff:m  |
+  34:main.c        **** | based off of the usbtiny AVR      |       +--------------------+
+  35:main.c        **** | programmer. Other programmers     |
+  36:main.c        **** | may have a different fuse number  |
+  37:main.c        **** \***********************************/
+  38:main.c        **** 
+  39:main.c        **** /************************** AVRDUDE command for 8MHz **************************\ 
+  40:main.c        **** | sudo avrdude -p m328p -c usbtiny -U flash:w:myproject.hex                    |
+  41:main.c        **** |                       -U lfuse:w:0xE2:m -U hfuse:w:0xD9:m -U efuse:w:0x07:m  |
+  42:main.c        **** |                                                                              |
+  43:main.c        **** | NOTE: when messing with fuses, do this at your own risk. These fuses for the |
+  44:main.c        **** |        ATMEGA328P (ATMEGA328) worked for me, however if they do not work for |
+  45:main.c        **** |        you, it is not my fault                                               |
+  46:main.c        **** | NOTE: '-c usbtiny' is incorrect if you are using a different programmer      |
+  47:main.c        **** \******************************************************************************/
+  48:main.c        **** 
+  49:main.c        **** #define SERVO_OPEN 575
+  50:main.c        **** #define SERVO_CLOSE 1000
+  51:main.c        **** 
+  52:main.c        **** #include <avr/io.h>
+  53:main.c        **** #include <avr/interrupt.h>
+  54:main.c        **** #include <stdlib.h>
+  55:main.c        **** 
+  56:main.c        **** #define ARRAYSIZE 900   // Number of point to collect each time
+  57:main.c        **** 
+  58:main.c        **** int * begin;            // points to the bigining of the array
+  59:main.c        **** int * names;
+  60:main.c        **** int namesize;
+  61:main.c        **** volatile int iter;      // the iterator for the placement of count in the array
+  62:main.c        **** volatile int count;     // counts 125kHz pulses
+  63:main.c        **** volatile int lastpulse; // last value of DEMOD_OUT
+  64:main.c        **** volatile int on;        // stores the value of DEMOD_OUT in the interrupt
+  65:main.c        **** 
+  66:main.c        **** /********************************* ADD NAMES *********************************\
+  67:main.c        **** | This function add allocates the ammount of memory that will be needed to    |
+  68:main.c        **** | store the list of names, and adds all the saved names to the allocated      |
+  69:main.c        **** | memory for use later in the program                                         |
+  70:main.c        **** \*****************************************************************************/
+  71:main.c        **** void addNames(void) {
+  85               		.stabn	68,0,71,.LM0-.LFBB1
+  86               	.LM0:
+  87               	.LFBB1:
+  88               	/* prologue: function */
+  89               	/* frame size = 0 */
+  90               	/* stack size = 0 */
+  91               	.L__stack_usage = 0
+  72:main.c        ****   namesize = 31;
+  92               		.stabn	68,0,72,.LM1-.LFBB1
+  93               	.LM1:
+  94 0000 8FE1      		ldi r24,lo8(31)
+  95 0002 90E0      		ldi r25,hi8(31)
+  96 0004 9093 0000 		sts namesize+1,r25
+  97 0008 8093 0000 		sts namesize,r24
+  73:main.c        ****   names = malloc (sizeof(int) * namesize);
+  98               		.stabn	68,0,73,.LM2-.LFBB1
+GAS LISTING /tmp/ccnSCpy9.s 			page 4
+
+
+  99               	.LM2:
+ 100 000c 8EE3      		ldi r24,lo8(62)
+ 101 000e 90E0      		ldi r25,hi8(62)
+ 102 0010 0E94 0000 		call malloc
+ 103 0014 FC01      		movw r30,r24
+ 104 0016 9093 0000 		sts names+1,r25
+ 105 001a 8093 0000 		sts names,r24
+  74:main.c        ****   names [0] = 12345;
+ 106               		.stabn	68,0,74,.LM3-.LFBB1
+ 107               	.LM3:
+ 108 001e 89E3      		ldi r24,lo8(12345)
+ 109 0020 90E3      		ldi r25,hi8(12345)
+ 110 0022 9183      		std Z+1,r25
+ 111 0024 8083      		st Z,r24
+  75:main.c        ****   names [1] = 12346;
+ 112               		.stabn	68,0,75,.LM4-.LFBB1
+ 113               	.LM4:
+ 114 0026 8AE3      		ldi r24,lo8(12346)
+ 115 0028 90E3      		ldi r25,hi8(12346)
+ 116 002a 9383      		std Z+3,r25
+ 117 002c 8283      		std Z+2,r24
+ 118               	/* epilogue start */
+  76:main.c        **** }
+ 119               		.stabn	68,0,76,.LM5-.LFBB1
+ 120               	.LM5:
+ 121 002e 0895      		ret
+ 122               		.size	addNames, .-addNames
+ 123               	.Lscope1:
+ 124               		.stabs	"",36,0,0,.Lscope1-.LFBB1
+ 125               		.stabd	78,0,0
+ 126               		.stabs	"__vector_1:F(0,15)",36,0,86,__vector_1
+ 127               	.global	__vector_1
+ 128               		.type	__vector_1, @function
+ 129               	__vector_1:
+ 130               		.stabd	46,0,0
+  77:main.c        **** 
+  78:main.c        **** /******************************* INT0 INTERRUPT *******************************\
+  79:main.c        **** | This ISR(INT0_vect) is the interrupt function for INT0. This function is the |
+  80:main.c        **** | function that is run each time the 125kHz pulse goes HIGH.                   |
+  81:main.c        **** | 1) If this pulse is in a new wave then put the count of the last wave into   |
+  82:main.c        **** |     the array                                                                |
+  83:main.c        **** | 2) Add one to the count (count stores the number of 125kHz pulses in each    |
+  84:main.c        **** |     wave                                                                     |
+  85:main.c        **** \******************************************************************************/
+  86:main.c        **** ISR(INT0_vect) {
+ 131               		.stabn	68,0,86,.LM6-.LFBB2
+ 132               	.LM6:
+ 133               	.LFBB2:
+ 134 0030 1F92      		push __zero_reg__
+ 135 0032 0F92      		push r0
+ 136 0034 0FB6      		in r0,__SREG__
+ 137 0036 0F92      		push r0
+ 138 0038 1124      		clr __zero_reg__
+ 139 003a 2F93      		push r18
+ 140 003c 3F93      		push r19
+ 141 003e 8F93      		push r24
+ 142 0040 9F93      		push r25
+GAS LISTING /tmp/ccnSCpy9.s 			page 5
+
+
+ 143 0042 EF93      		push r30
+ 144 0044 FF93      		push r31
+ 145               	/* prologue: Signal */
+ 146               	/* frame size = 0 */
+ 147               	/* stack size = 9 */
+ 148               	.L__stack_usage = 9
+  87:main.c        ****   //Save the value of DEMOD_OUT to prevent re-reading
+  88:main.c        ****   on =(PINB & 0x01); 
+ 149               		.stabn	68,0,88,.LM7-.LFBB2
+ 150               	.LM7:
+ 151 0046 83B1      		in r24,35-32
+ 152 0048 90E0      		ldi r25,lo8(0)
+ 153 004a 8170      		andi r24,lo8(1)
+ 154 004c 9070      		andi r25,hi8(1)
+ 155 004e 9093 0000 		sts on+1,r25
+ 156 0052 8093 0000 		sts on,r24
+  89:main.c        ****   // if wave is rising (end of the last wave)
+  90:main.c        ****   if (on == 1 && lastpulse == 0 ) {
+ 157               		.stabn	68,0,90,.LM8-.LFBB2
+ 158               	.LM8:
+ 159 0056 8091 0000 		lds r24,on
+ 160 005a 9091 0000 		lds r25,on+1
+ 161 005e 8130      		cpi r24,1
+ 162 0060 9105      		cpc r25,__zero_reg__
+ 163 0062 01F4      		brne .L3
+ 164               		.stabn	68,0,90,.LM9-.LFBB2
+ 165               	.LM9:
+ 166 0064 8091 0000 		lds r24,lastpulse
+ 167 0068 9091 0000 		lds r25,lastpulse+1
+ 168 006c 0097      		sbiw r24,0
+ 169 006e 01F4      		brne .L3
+  91:main.c        ****     // write the data to the array and reset the cound
+  92:main.c        ****     begin[iter] = count;
+ 170               		.stabn	68,0,92,.LM10-.LFBB2
+ 171               	.LM10:
+ 172 0070 8091 0000 		lds r24,iter
+ 173 0074 9091 0000 		lds r25,iter+1
+ 174 0078 2091 0000 		lds r18,count
+ 175 007c 3091 0000 		lds r19,count+1
+ 176 0080 880F      		lsl r24
+ 177 0082 991F      		rol r25
+ 178 0084 E091 0000 		lds r30,begin
+ 179 0088 F091 0000 		lds r31,begin+1
+ 180 008c E80F      		add r30,r24
+ 181 008e F91F      		adc r31,r25
+ 182 0090 3183      		std Z+1,r19
+ 183 0092 2083      		st Z,r18
+  93:main.c        ****     count = 0;
+ 184               		.stabn	68,0,93,.LM11-.LFBB2
+ 185               	.LM11:
+ 186 0094 1092 0000 		sts count+1,__zero_reg__
+ 187 0098 1092 0000 		sts count,__zero_reg__
+  94:main.c        ****     iter = iter + 1;
+ 188               		.stabn	68,0,94,.LM12-.LFBB2
+ 189               	.LM12:
+ 190 009c 8091 0000 		lds r24,iter
+ 191 00a0 9091 0000 		lds r25,iter+1
+GAS LISTING /tmp/ccnSCpy9.s 			page 6
+
+
+ 192 00a4 0196      		adiw r24,1
+ 193 00a6 9093 0000 		sts iter+1,r25
+ 194 00aa 8093 0000 		sts iter,r24
+ 195               	.L3:
+  95:main.c        ****   }
+  96:main.c        ****   count = count + 1;
+ 196               		.stabn	68,0,96,.LM13-.LFBB2
+ 197               	.LM13:
+ 198 00ae 8091 0000 		lds r24,count
+ 199 00b2 9091 0000 		lds r25,count+1
+ 200 00b6 0196      		adiw r24,1
+ 201 00b8 9093 0000 		sts count+1,r25
+ 202 00bc 8093 0000 		sts count,r24
+  97:main.c        ****   lastpulse = on;
+ 203               		.stabn	68,0,97,.LM14-.LFBB2
+ 204               	.LM14:
+ 205 00c0 8091 0000 		lds r24,on
+ 206 00c4 9091 0000 		lds r25,on+1
+ 207 00c8 9093 0000 		sts lastpulse+1,r25
+ 208 00cc 8093 0000 		sts lastpulse,r24
+ 209               	/* epilogue start */
+  98:main.c        **** }
+ 210               		.stabn	68,0,98,.LM15-.LFBB2
+ 211               	.LM15:
+ 212 00d0 FF91      		pop r31
+ 213 00d2 EF91      		pop r30
+ 214 00d4 9F91      		pop r25
+ 215 00d6 8F91      		pop r24
+ 216 00d8 3F91      		pop r19
+ 217 00da 2F91      		pop r18
+ 218 00dc 0F90      		pop r0
+ 219 00de 0FBE      		out __SREG__,r0
+ 220 00e0 0F90      		pop r0
+ 221 00e2 1F90      		pop __zero_reg__
+ 222 00e4 1895      		reti
+ 223               		.size	__vector_1, .-__vector_1
+ 224               	.Lscope2:
+ 225               		.stabs	"",36,0,0,.Lscope2-.LFBB2
+ 226               		.stabd	78,0,0
+ 227               		.stabs	"wait:F(0,15)",36,0,103,wait
+ 228               	.global	wait
+ 229               		.type	wait, @function
+ 230               	wait:
+ 231               		.stabd	46,0,0
+  99:main.c        **** 
+ 100:main.c        **** /************************************ WAIT ************************************\
+ 101:main.c        **** | A generic wait function                                                      |
+ 102:main.c        **** \******************************************************************************/
+ 103:main.c        **** void wait (unsigned long time) {
+ 232               		.stabn	68,0,103,.LM16-.LFBB3
+ 233               	.LM16:
+ 234               	.LFBB3:
+ 235               	/* prologue: function */
+ 236               	/* frame size = 0 */
+ 237               	/* stack size = 0 */
+ 238               	.L__stack_usage = 0
+ 239               		.stabn	68,0,103,.LM17-.LFBB3
+GAS LISTING /tmp/ccnSCpy9.s 			page 7
+
+
+ 240               	.LM17:
+ 241 00e6 9B01      		movw r18,r22
+ 242 00e8 AC01      		movw r20,r24
+ 104:main.c        ****   long i;
+ 105:main.c        ****   for (i = 0; i < time; i++) {
+ 243               		.stabn	68,0,105,.LM18-.LFBB3
+ 244               	.LM18:
+ 245 00ea 80E0      		ldi r24,lo8(0)
+ 246 00ec 90E0      		ldi r25,hi8(0)
+ 247 00ee DC01      		movw r26,r24
+ 248 00f0 00C0      		rjmp .L5
+ 249               	.L6:
+ 106:main.c        ****     asm volatile ("nop");
+ 250               		.stabn	68,0,106,.LM19-.LFBB3
+ 251               	.LM19:
+ 252               	/* #APP */
+ 253               	 ;  106 "main.c" 1
+ 254 00f2 0000      		nop
+ 255               	 ;  0 "" 2
+ 105:main.c        ****   for (i = 0; i < time; i++) {
+ 256               		.stabn	68,0,105,.LM20-.LFBB3
+ 257               	.LM20:
+ 258               	/* #NOAPP */
+ 259 00f4 0196      		adiw r24,1
+ 260 00f6 A11D      		adc r26,__zero_reg__
+ 261 00f8 B11D      		adc r27,__zero_reg__
+ 262               	.L5:
+ 105:main.c        ****   for (i = 0; i < time; i++) {
+ 263               		.stabn	68,0,105,.LM21-.LFBB3
+ 264               	.LM21:
+ 265 00fa 8217      		cp r24,r18
+ 266 00fc 9307      		cpc r25,r19
+ 267 00fe A407      		cpc r26,r20
+ 268 0100 B507      		cpc r27,r21
+ 269 0102 01F4      		brne .L6
+ 270               	/* epilogue start */
+ 107:main.c        ****   }
+ 108:main.c        **** }
+ 271               		.stabn	68,0,108,.LM22-.LFBB3
+ 272               	.LM22:
+ 273 0104 0895      		ret
+ 274               		.size	wait, .-wait
+ 275               		.stabs	"i:r(0,3)",64,0,104,24
+ 276               		.stabn	192,0,0,.LFBB3-.LFBB3
+ 277               		.stabn	224,0,0,.Lscope3-.LFBB3
+ 278               	.Lscope3:
+ 279               		.stabs	"",36,0,0,.Lscope3-.LFBB3
+ 280               		.stabd	78,0,0
+ 281               		.stabs	"USART_Init:F(0,15)",36,0,118,USART_Init
+ 282               	.global	USART_Init
+ 283               		.type	USART_Init, @function
+ 284               	USART_Init:
+ 285               		.stabd	46,0,0
+ 109:main.c        **** 
+ 110:main.c        **** /******************************** USART CONFIG ********************************\
+ 111:main.c        **** | USART_Init(void) initilizes the USART feature, this function needs to be run |
+ 112:main.c        **** | before any USART functions are used, this function configures the BAUD rate  |
+GAS LISTING /tmp/ccnSCpy9.s 			page 8
+
+
+ 113:main.c        **** | for the USART and enables the format for transmission                        |
+ 114:main.c        **** \******************************************************************************/
+ 115:main.c        **** #define FOSC 8000000 // Clock Speed of the procesor
+ 116:main.c        **** #define BAUD 19200    // Baud rate (to change the BAUD rate change this variable
+ 117:main.c        **** #define MYUBRR FOSC/16/BAUD-1 // calculate the number the processor needs
+ 118:main.c        **** void USART_Init(void) {
+ 286               		.stabn	68,0,118,.LM23-.LFBB4
+ 287               	.LM23:
+ 288               	.LFBB4:
+ 289               	/* prologue: function */
+ 290               	/* frame size = 0 */
+ 291               	/* stack size = 0 */
+ 292               	.L__stack_usage = 0
+ 119:main.c        ****   unsigned int ubrr = MYUBRR;
+ 120:main.c        ****   /*Set baud rate */
+ 121:main.c        ****   UBRR0H = (unsigned char)(ubrr>>8);
+ 293               		.stabn	68,0,121,.LM24-.LFBB4
+ 294               	.LM24:
+ 295 0106 1092 C500 		sts 197,__zero_reg__
+ 122:main.c        ****   UBRR0L = (unsigned char)ubrr;
+ 296               		.stabn	68,0,122,.LM25-.LFBB4
+ 297               	.LM25:
+ 298 010a 89E1      		ldi r24,lo8(25)
+ 299 010c 8093 C400 		sts 196,r24
+ 123:main.c        ****   /*Enable receiver and transmitter */
+ 124:main.c        ****   UCSR0B = (1<<RXEN0)|(1<<TXEN0);
+ 300               		.stabn	68,0,124,.LM26-.LFBB4
+ 301               	.LM26:
+ 302 0110 88E1      		ldi r24,lo8(24)
+ 303 0112 8093 C100 		sts 193,r24
+ 125:main.c        ****   /* Set frame format: 8data, 2stop bit */
+ 126:main.c        ****   UCSR0C = (1<<USBS0)|(3<<UCSZ00);
+ 304               		.stabn	68,0,126,.LM27-.LFBB4
+ 305               	.LM27:
+ 306 0116 8EE0      		ldi r24,lo8(14)
+ 307 0118 8093 C200 		sts 194,r24
+ 308               	/* epilogue start */
+ 127:main.c        **** }
+ 309               		.stabn	68,0,127,.LM28-.LFBB4
+ 310               	.LM28:
+ 311 011c 0895      		ret
+ 312               		.size	USART_Init, .-USART_Init
+ 313               	.Lscope4:
+ 314               		.stabs	"",36,0,0,.Lscope4-.LFBB4
+ 315               		.stabd	78,0,0
+ 316               		.stabs	"USART_Transmit:F(0,15)",36,0,136,USART_Transmit
+ 317               		.stabs	"input:P(0,1)",64,0,136,24
+ 318               	.global	USART_Transmit
+ 319               		.type	USART_Transmit, @function
+ 320               	USART_Transmit:
+ 321               		.stabd	46,0,0
+ 128:main.c        **** 
+ 129:main.c        **** /******************************* USART_Transmit *******************************\
+ 130:main.c        **** | The USART_Transmit(int) function allows you to send numbers to USART serial  |
+ 131:main.c        **** | This function only handles numbers up to two digits. If there is one digit   |
+ 132:main.c        **** | the message contains a space, then the digit converted to ascii. If there    |
+ 133:main.c        **** | are two digits then the message is the first digit followed by the seccond   |
+GAS LISTING /tmp/ccnSCpy9.s 			page 9
+
+
+ 134:main.c        **** | If the input is negative then the function will output a newline character   |
+ 135:main.c        **** \******************************************************************************/
+ 136:main.c        **** void USART_Transmit( int input )
+ 137:main.c        **** {
+ 322               		.stabn	68,0,137,.LM29-.LFBB5
+ 323               	.LM29:
+ 324               	.LFBB5:
+ 325               	/* prologue: function */
+ 326               	/* frame size = 0 */
+ 327               	/* stack size = 0 */
+ 328               	.L__stack_usage = 0
+ 138:main.c        ****   unsigned char data;
+ 139:main.c        ****   if (input == -1) {
+ 329               		.stabn	68,0,139,.LM30-.LFBB5
+ 330               	.LM30:
+ 331 011e 2FEF      		ldi r18,hi8(-1)
+ 332 0120 8F3F      		cpi r24,lo8(-1)
+ 333 0122 9207      		cpc r25,r18
+ 334 0124 01F4      		brne .L9
+ 335               	.L15:
+ 140:main.c        ****     while ( !( UCSR0A & (1<<UDRE0)) );
+ 336               		.stabn	68,0,140,.LM31-.LFBB5
+ 337               	.LM31:
+ 338 0126 8091 C000 		lds r24,192
+ 339 012a 85FF      		sbrs r24,5
+ 340 012c 00C0      		rjmp .L15
+ 141:main.c        ****     // Put '\n' into the bufffer to send
+ 142:main.c        ****     UDR0 = '\r';
+ 341               		.stabn	68,0,142,.LM32-.LFBB5
+ 342               	.LM32:
+ 343 012e 8DE0      		ldi r24,lo8(13)
+ 344 0130 8093 C600 		sts 198,r24
+ 345               	.L11:
+ 143:main.c        ****     //dont continue running the function to prevent outputing E
+ 144:main.c        ****     // Wait for empty transmit buffer
+ 145:main.c        ****     while ( !( UCSR0A & (1<<UDRE0)) );
+ 346               		.stabn	68,0,145,.LM33-.LFBB5
+ 347               	.LM33:
+ 348 0134 8091 C000 		lds r24,192
+ 349 0138 85FF      		sbrs r24,5
+ 350 013a 00C0      		rjmp .L11
+ 146:main.c        ****     // Put '\n' into the bufffer to send
+ 147:main.c        ****     UDR0 = '\n';
+ 351               		.stabn	68,0,147,.LM34-.LFBB5
+ 352               	.LM34:
+ 353 013c 8AE0      		ldi r24,lo8(10)
+ 354 013e 00C0      		rjmp .L20
+ 355               	.L9:
+ 148:main.c        ****     //dont continue running the function to prevent outputing E
+ 149:main.c        ****     return;
+ 150:main.c        ****   }
+ 151:main.c        ****   else if (input < 10 && input >= 0) {     
+ 356               		.stabn	68,0,151,.LM35-.LFBB5
+ 357               	.LM35:
+ 358 0140 8A30      		cpi r24,10
+ 359 0142 9105      		cpc r25,__zero_reg__
+ 360 0144 00F4      		brsh .L13
+GAS LISTING /tmp/ccnSCpy9.s 			page 10
+
+
+ 361               	.L16:
+ 152:main.c        ****     while ( !( UCSR0A & (1<<UDRE0)) );
+ 362               		.stabn	68,0,152,.LM36-.LFBB5
+ 363               	.LM36:
+ 364 0146 2091 C000 		lds r18,192
+ 365 014a 25FF      		sbrs r18,5
+ 366 014c 00C0      		rjmp .L16
+ 153:main.c        ****     data = '0' + input;
+ 367               		.stabn	68,0,153,.LM37-.LFBB5
+ 368               	.LM37:
+ 369 014e 805D      		subi r24,lo8(-(48))
+ 370 0150 00C0      		rjmp .L20
+ 371               	.L13:
+ 154:main.c        ****     UDR0 = data;
+ 155:main.c        ****   }
+ 156:main.c        ****   else {
+ 157:main.c        ****     // Output E if the number cannot be outputed
+ 158:main.c        ****     UDR0 = 'E';
+ 372               		.stabn	68,0,158,.LM38-.LFBB5
+ 373               	.LM38:
+ 374 0152 85E4      		ldi r24,lo8(69)
+ 375               	.L20:
+ 376 0154 8093 C600 		sts 198,r24
+ 377 0158 0895      		ret
+ 378               		.size	USART_Transmit, .-USART_Transmit
+ 379               		.stabs	"data:r(0,11)",64,0,138,24
+ 380               		.stabn	192,0,0,.LFBB5-.LFBB5
+ 381               		.stabn	224,0,0,.Lscope5-.LFBB5
+ 382               	.Lscope5:
+ 383               		.stabs	"",36,0,0,.Lscope5-.LFBB5
+ 384               		.stabd	78,0,0
+ 385               		.stabs	"convertInput:F(0,1)",36,0,168,convertInput
+ 386               		.stabs	"array:P(0,16)=*(0,1)",64,0,168,30
+ 387               	.global	convertInput
+ 388               		.type	convertInput, @function
+ 389               	convertInput:
+ 390               		.stabd	46,0,0
+ 159:main.c        ****   }
+ 160:main.c        **** }
+ 161:main.c        **** 
+ 162:main.c        **** /******************************* CONVERT INPUT *******************************\
+ 163:main.c        **** | This function converts the 45 bit input (ints representing bools) into the  |
+ 164:main.c        **** | decimal number represented on the card. It strips off the first 28 bits     |
+ 165:main.c        **** | and the last bit (the parady bit) and returns a two byte number generated   |
+ 166:main.c        **** | with the remaining 16 bits                                                  |
+ 167:main.c        **** \*****************************************************************************/
+ 168:main.c        **** int convertInput (int array[45]) {
+ 391               		.stabn	68,0,168,.LM39-.LFBB6
+ 392               	.LM39:
+ 393               	.LFBB6:
+ 394               	/* prologue: function */
+ 395               	/* frame size = 0 */
+ 396               	/* stack size = 0 */
+ 397               	.L__stack_usage = 0
+ 398 015a FC01      		movw r30,r24
+ 169:main.c        ****   int result = 0;
+ 170:main.c        ****   if (array[28]) result += 32768;
+GAS LISTING /tmp/ccnSCpy9.s 			page 11
+
+
+ 399               		.stabn	68,0,170,.LM40-.LFBB6
+ 400               	.LM40:
+ 401 015c 80AD      		ldd r24,Z+56
+ 402 015e 91AD      		ldd r25,Z+57
+ 403 0160 0097      		sbiw r24,0
+ 404 0162 01F4      		brne .L38
+ 169:main.c        ****   int result = 0;
+ 405               		.stabn	68,0,169,.LM41-.LFBB6
+ 406               	.LM41:
+ 407 0164 20E0      		ldi r18,lo8(0)
+ 408 0166 30E0      		ldi r19,hi8(0)
+ 409 0168 00C0      		rjmp .L22
+ 410               	.L38:
+ 411               		.stabn	68,0,170,.LM42-.LFBB6
+ 412               	.LM42:
+ 413 016a 20E0      		ldi r18,lo8(-32768)
+ 414 016c 30E8      		ldi r19,hi8(-32768)
+ 415               	.L22:
+ 171:main.c        ****   if (array[29]) result += 16384;
+ 416               		.stabn	68,0,171,.LM43-.LFBB6
+ 417               	.LM43:
+ 418 016e 82AD      		ldd r24,Z+58
+ 419 0170 93AD      		ldd r25,Z+59
+ 420 0172 0097      		sbiw r24,0
+ 421 0174 01F0      		breq .L23
+ 422               		.stabn	68,0,171,.LM44-.LFBB6
+ 423               	.LM44:
+ 424 0176 2050      		subi r18,lo8(-(16384))
+ 425 0178 304C      		sbci r19,hi8(-(16384))
+ 426               	.L23:
+ 172:main.c        ****   if (array[30]) result += 8192;
+ 427               		.stabn	68,0,172,.LM45-.LFBB6
+ 428               	.LM45:
+ 429 017a 84AD      		ldd r24,Z+60
+ 430 017c 95AD      		ldd r25,Z+61
+ 431 017e 0097      		sbiw r24,0
+ 432 0180 01F0      		breq .L24
+ 433               		.stabn	68,0,172,.LM46-.LFBB6
+ 434               	.LM46:
+ 435 0182 2050      		subi r18,lo8(-(8192))
+ 436 0184 304E      		sbci r19,hi8(-(8192))
+ 437               	.L24:
+ 173:main.c        ****   if (array[31]) result += 4096;
+ 438               		.stabn	68,0,173,.LM47-.LFBB6
+ 439               	.LM47:
+ 440 0186 86AD      		ldd r24,Z+62
+ 441 0188 97AD      		ldd r25,Z+63
+ 442 018a 0097      		sbiw r24,0
+ 443 018c 01F0      		breq .L25
+ 444               		.stabn	68,0,173,.LM48-.LFBB6
+ 445               	.LM48:
+ 446 018e 2050      		subi r18,lo8(-(4096))
+ 447 0190 304F      		sbci r19,hi8(-(4096))
+ 448               	.L25:
+ 174:main.c        ****   if (array[32]) result += 2048;
+ 449               		.stabn	68,0,174,.LM49-.LFBB6
+ 450               	.LM49:
+GAS LISTING /tmp/ccnSCpy9.s 			page 12
+
+
+ 451 0192 DF01      		movw r26,r30
+ 452 0194 A05C      		subi r26,lo8(-(64))
+ 453 0196 BF4F      		sbci r27,hi8(-(64))
+ 454 0198 8D91      		ld r24,X+
+ 455 019a 9C91      		ld r25,X
+ 456 019c 1197      		sbiw r26,1
+ 457 019e 0097      		sbiw r24,0
+ 458 01a0 01F0      		breq .L26
+ 459               		.stabn	68,0,174,.LM50-.LFBB6
+ 460               	.LM50:
+ 461 01a2 2050      		subi r18,lo8(-(2048))
+ 462 01a4 384F      		sbci r19,hi8(-(2048))
+ 463               	.L26:
+ 175:main.c        ****   if (array[33]) result += 1024;
+ 464               		.stabn	68,0,175,.LM51-.LFBB6
+ 465               	.LM51:
+ 466 01a6 DF01      		movw r26,r30
+ 467 01a8 AE5B      		subi r26,lo8(-(66))
+ 468 01aa BF4F      		sbci r27,hi8(-(66))
+ 469 01ac 8D91      		ld r24,X+
+ 470 01ae 9C91      		ld r25,X
+ 471 01b0 1197      		sbiw r26,1
+ 472 01b2 0097      		sbiw r24,0
+ 473 01b4 01F0      		breq .L27
+ 474               		.stabn	68,0,175,.LM52-.LFBB6
+ 475               	.LM52:
+ 476 01b6 2050      		subi r18,lo8(-(1024))
+ 477 01b8 3C4F      		sbci r19,hi8(-(1024))
+ 478               	.L27:
+ 176:main.c        ****   if (array[34]) result += 512;
+ 479               		.stabn	68,0,176,.LM53-.LFBB6
+ 480               	.LM53:
+ 481 01ba DF01      		movw r26,r30
+ 482 01bc AC5B      		subi r26,lo8(-(68))
+ 483 01be BF4F      		sbci r27,hi8(-(68))
+ 484 01c0 8D91      		ld r24,X+
+ 485 01c2 9C91      		ld r25,X
+ 486 01c4 1197      		sbiw r26,1
+ 487 01c6 0097      		sbiw r24,0
+ 488 01c8 01F0      		breq .L28
+ 489               		.stabn	68,0,176,.LM54-.LFBB6
+ 490               	.LM54:
+ 491 01ca 2050      		subi r18,lo8(-(512))
+ 492 01cc 3E4F      		sbci r19,hi8(-(512))
+ 493               	.L28:
+ 177:main.c        ****   if (array[35]) result += 256;
+ 494               		.stabn	68,0,177,.LM55-.LFBB6
+ 495               	.LM55:
+ 496 01ce DF01      		movw r26,r30
+ 497 01d0 AA5B      		subi r26,lo8(-(70))
+ 498 01d2 BF4F      		sbci r27,hi8(-(70))
+ 499 01d4 8D91      		ld r24,X+
+ 500 01d6 9C91      		ld r25,X
+ 501 01d8 1197      		sbiw r26,1
+ 502 01da 0097      		sbiw r24,0
+ 503 01dc 01F0      		breq .L29
+ 504               		.stabn	68,0,177,.LM56-.LFBB6
+GAS LISTING /tmp/ccnSCpy9.s 			page 13
+
+
+ 505               	.LM56:
+ 506 01de 2050      		subi r18,lo8(-(256))
+ 507 01e0 3F4F      		sbci r19,hi8(-(256))
+ 508               	.L29:
+ 178:main.c        ****   if (array[36]) result += 128;
+ 509               		.stabn	68,0,178,.LM57-.LFBB6
+ 510               	.LM57:
+ 511 01e2 DF01      		movw r26,r30
+ 512 01e4 A85B      		subi r26,lo8(-(72))
+ 513 01e6 BF4F      		sbci r27,hi8(-(72))
+ 514 01e8 8D91      		ld r24,X+
+ 515 01ea 9C91      		ld r25,X
+ 516 01ec 1197      		sbiw r26,1
+ 517 01ee 0097      		sbiw r24,0
+ 518 01f0 01F0      		breq .L30
+ 519               		.stabn	68,0,178,.LM58-.LFBB6
+ 520               	.LM58:
+ 521 01f2 2058      		subi r18,lo8(-(128))
+ 522 01f4 3F4F      		sbci r19,hi8(-(128))
+ 523               	.L30:
+ 179:main.c        ****   if (array[37]) result += 64;
+ 524               		.stabn	68,0,179,.LM59-.LFBB6
+ 525               	.LM59:
+ 526 01f6 DF01      		movw r26,r30
+ 527 01f8 A65B      		subi r26,lo8(-(74))
+ 528 01fa BF4F      		sbci r27,hi8(-(74))
+ 529 01fc 8D91      		ld r24,X+
+ 530 01fe 9C91      		ld r25,X
+ 531 0200 1197      		sbiw r26,1
+ 532 0202 0097      		sbiw r24,0
+ 533 0204 01F0      		breq .L31
+ 534               		.stabn	68,0,179,.LM60-.LFBB6
+ 535               	.LM60:
+ 536 0206 205C      		subi r18,lo8(-(64))
+ 537 0208 3F4F      		sbci r19,hi8(-(64))
+ 538               	.L31:
+ 180:main.c        ****   if (array[38]) result += 32;
+ 539               		.stabn	68,0,180,.LM61-.LFBB6
+ 540               	.LM61:
+ 541 020a DF01      		movw r26,r30
+ 542 020c A45B      		subi r26,lo8(-(76))
+ 543 020e BF4F      		sbci r27,hi8(-(76))
+ 544 0210 8D91      		ld r24,X+
+ 545 0212 9C91      		ld r25,X
+ 546 0214 1197      		sbiw r26,1
+ 547 0216 0097      		sbiw r24,0
+ 548 0218 01F0      		breq .L32
+ 549               		.stabn	68,0,180,.LM62-.LFBB6
+ 550               	.LM62:
+ 551 021a 205E      		subi r18,lo8(-(32))
+ 552 021c 3F4F      		sbci r19,hi8(-(32))
+ 553               	.L32:
+ 181:main.c        ****   if (array[39]) result += 16;
+ 554               		.stabn	68,0,181,.LM63-.LFBB6
+ 555               	.LM63:
+ 556 021e DF01      		movw r26,r30
+ 557 0220 A25B      		subi r26,lo8(-(78))
+GAS LISTING /tmp/ccnSCpy9.s 			page 14
+
+
+ 558 0222 BF4F      		sbci r27,hi8(-(78))
+ 559 0224 8D91      		ld r24,X+
+ 560 0226 9C91      		ld r25,X
+ 561 0228 1197      		sbiw r26,1
+ 562 022a 0097      		sbiw r24,0
+ 563 022c 01F0      		breq .L33
+ 564               		.stabn	68,0,181,.LM64-.LFBB6
+ 565               	.LM64:
+ 566 022e 205F      		subi r18,lo8(-(16))
+ 567 0230 3F4F      		sbci r19,hi8(-(16))
+ 568               	.L33:
+ 182:main.c        ****   if (array[40]) result += 8;
+ 569               		.stabn	68,0,182,.LM65-.LFBB6
+ 570               	.LM65:
+ 571 0232 DF01      		movw r26,r30
+ 572 0234 A05B      		subi r26,lo8(-(80))
+ 573 0236 BF4F      		sbci r27,hi8(-(80))
+ 574 0238 8D91      		ld r24,X+
+ 575 023a 9C91      		ld r25,X
+ 576 023c 1197      		sbiw r26,1
+ 577 023e 0097      		sbiw r24,0
+ 578 0240 01F0      		breq .L34
+ 579               		.stabn	68,0,182,.LM66-.LFBB6
+ 580               	.LM66:
+ 581 0242 285F      		subi r18,lo8(-(8))
+ 582 0244 3F4F      		sbci r19,hi8(-(8))
+ 583               	.L34:
+ 183:main.c        ****   if (array[41]) result += 4;
+ 584               		.stabn	68,0,183,.LM67-.LFBB6
+ 585               	.LM67:
+ 586 0246 DF01      		movw r26,r30
+ 587 0248 AE5A      		subi r26,lo8(-(82))
+ 588 024a BF4F      		sbci r27,hi8(-(82))
+ 589 024c 8D91      		ld r24,X+
+ 590 024e 9C91      		ld r25,X
+ 591 0250 1197      		sbiw r26,1
+ 592 0252 0097      		sbiw r24,0
+ 593 0254 01F0      		breq .L35
+ 594               		.stabn	68,0,183,.LM68-.LFBB6
+ 595               	.LM68:
+ 596 0256 2C5F      		subi r18,lo8(-(4))
+ 597 0258 3F4F      		sbci r19,hi8(-(4))
+ 598               	.L35:
+ 184:main.c        ****   if (array[42]) result += 2;
+ 599               		.stabn	68,0,184,.LM69-.LFBB6
+ 600               	.LM69:
+ 601 025a DF01      		movw r26,r30
+ 602 025c AC5A      		subi r26,lo8(-(84))
+ 603 025e BF4F      		sbci r27,hi8(-(84))
+ 604 0260 8D91      		ld r24,X+
+ 605 0262 9C91      		ld r25,X
+ 606 0264 1197      		sbiw r26,1
+ 607 0266 0097      		sbiw r24,0
+ 608 0268 01F0      		breq .L36
+ 609               		.stabn	68,0,184,.LM70-.LFBB6
+ 610               	.LM70:
+ 611 026a 2E5F      		subi r18,lo8(-(2))
+GAS LISTING /tmp/ccnSCpy9.s 			page 15
+
+
+ 612 026c 3F4F      		sbci r19,hi8(-(2))
+ 613               	.L36:
+ 185:main.c        ****   if (array[43]) result += 1;
+ 614               		.stabn	68,0,185,.LM71-.LFBB6
+ 615               	.LM71:
+ 616 026e EA5A      		subi r30,lo8(-(86))
+ 617 0270 FF4F      		sbci r31,hi8(-(86))
+ 618 0272 8081      		ld r24,Z
+ 619 0274 9181      		ldd r25,Z+1
+ 620 0276 0097      		sbiw r24,0
+ 621 0278 01F0      		breq .L37
+ 622               		.stabn	68,0,185,.LM72-.LFBB6
+ 623               	.LM72:
+ 624 027a 2F5F      		subi r18,lo8(-(1))
+ 625 027c 3F4F      		sbci r19,hi8(-(1))
+ 626               	.L37:
+ 186:main.c        ****   return result;
+ 187:main.c        **** }
+ 627               		.stabn	68,0,187,.LM73-.LFBB6
+ 628               	.LM73:
+ 629 027e C901      		movw r24,r18
+ 630               	/* epilogue start */
+ 631 0280 0895      		ret
+ 632               		.size	convertInput, .-convertInput
+ 633               		.stabs	"result:r(0,1)",64,0,169,18
+ 634               		.stabn	192,0,0,.LFBB6-.LFBB6
+ 635               		.stabn	224,0,0,.Lscope6-.LFBB6
+ 636               	.Lscope6:
+ 637               		.stabs	"",36,0,0,.Lscope6-.LFBB6
+ 638               		.stabd	78,0,0
+ 639               		.stabs	"searchTag:F(0,1)",36,0,194,searchTag
+ 640               		.stabs	"tag:P(0,1)",64,0,194,24
+ 641               	.global	searchTag
+ 642               		.type	searchTag, @function
+ 643               	searchTag:
+ 644               		.stabd	46,0,0
+ 188:main.c        **** 
+ 189:main.c        **** /********************************* Search Tag *********************************\
+ 190:main.c        **** | This function searches for a tag in the list of tags stored in the flash     |
+ 191:main.c        **** | memory, if the tag is found then the function returns 1 (true) if the tag    |
+ 192:main.c        **** | is not found then the function returns 0 (false)                             |
+ 193:main.c        **** \******************************************************************************/
+ 194:main.c        **** int searchTag (int tag) {
+ 645               		.stabn	68,0,194,.LM74-.LFBB7
+ 646               	.LM74:
+ 647               	.LFBB7:
+ 648               	/* prologue: function */
+ 649               	/* frame size = 0 */
+ 650               	/* stack size = 0 */
+ 651               	.L__stack_usage = 0
+ 195:main.c        ****   int i;
+ 196:main.c        ****   for (i = 0; i < namesize; i++) {
+ 652               		.stabn	68,0,196,.LM75-.LFBB7
+ 653               	.LM75:
+ 654 0282 4091 0000 		lds r20,namesize
+ 655 0286 5091 0000 		lds r21,namesize+1
+ 656 028a E091 0000 		lds r30,names
+GAS LISTING /tmp/ccnSCpy9.s 			page 16
+
+
+ 657 028e F091 0000 		lds r31,names+1
+ 658 0292 20E0      		ldi r18,lo8(0)
+ 659 0294 30E0      		ldi r19,hi8(0)
+ 660 0296 00C0      		rjmp .L40
+ 661               	.L42:
+ 197:main.c        ****     if (tag == names[i]) {
+ 662               		.stabn	68,0,197,.LM76-.LFBB7
+ 663               	.LM76:
+ 664 0298 6191      		ld r22,Z+
+ 665 029a 7191      		ld r23,Z+
+ 666 029c 8617      		cp r24,r22
+ 667 029e 9707      		cpc r25,r23
+ 668 02a0 01F0      		breq .L43
+ 196:main.c        ****   for (i = 0; i < namesize; i++) {
+ 669               		.stabn	68,0,196,.LM77-.LFBB7
+ 670               	.LM77:
+ 671 02a2 2F5F      		subi r18,lo8(-(1))
+ 672 02a4 3F4F      		sbci r19,hi8(-(1))
+ 673               	.L40:
+ 196:main.c        ****   for (i = 0; i < namesize; i++) {
+ 674               		.stabn	68,0,196,.LM78-.LFBB7
+ 675               	.LM78:
+ 676 02a6 2417      		cp r18,r20
+ 677 02a8 3507      		cpc r19,r21
+ 678 02aa 04F0      		brlt .L42
+ 198:main.c        ****       return 1;
+ 199:main.c        ****     }
+ 200:main.c        ****   }
+ 201:main.c        ****   return 0;
+ 679               		.stabn	68,0,201,.LM79-.LFBB7
+ 680               	.LM79:
+ 681 02ac 20E0      		ldi r18,lo8(0)
+ 682 02ae 30E0      		ldi r19,hi8(0)
+ 683 02b0 00C0      		rjmp .L41
+ 684               	.L43:
+ 198:main.c        ****       return 1;
+ 685               		.stabn	68,0,198,.LM80-.LFBB7
+ 686               	.LM80:
+ 687 02b2 21E0      		ldi r18,lo8(1)
+ 688 02b4 30E0      		ldi r19,hi8(1)
+ 689               	.L41:
+ 202:main.c        **** }
+ 690               		.stabn	68,0,202,.LM81-.LFBB7
+ 691               	.LM81:
+ 692 02b6 C901      		movw r24,r18
+ 693               	/* epilogue start */
+ 694 02b8 0895      		ret
+ 695               		.size	searchTag, .-searchTag
+ 696               		.stabs	"i:r(0,1)",64,0,195,18
+ 697               		.stabn	192,0,0,.LFBB7-.LFBB7
+ 698               		.stabn	224,0,0,.Lscope7-.LFBB7
+ 699               	.Lscope7:
+ 700               		.stabs	"",36,0,0,.Lscope7-.LFBB7
+ 701               		.stabd	78,0,0
+ 702               		.stabs	"analizeInput:F(0,15)",36,0,214,analizeInput
+ 703               	.global	analizeInput
+ 704               		.type	analizeInput, @function
+GAS LISTING /tmp/ccnSCpy9.s 			page 17
+
+
+ 705               	analizeInput:
+ 706               		.stabd	46,0,0
+ 203:main.c        **** 
+ 204:main.c        **** /******************************* Analize Input *******************************\
+ 205:main.c        **** | analizeInput(void) parses through the global variable and gets the 45 bit   |
+ 206:main.c        **** | id tag.                                                                     |
+ 207:main.c        **** | 1) Converts raw data (3,4,5,6,7,8,9,10) to binary data (0,1) errors have    |
+ 208:main.c        **** |     values of 99 instead of 1 or 0                                          |
+ 209:main.c        **** | 2) Finds a start tag in the code                                            |
+ 210:main.c        **** | 3) Parses the data from multibit code (11111000000000000111111111100000) to |
+ 211:main.c        **** |     singlebit manchester code (100110) untill it finds an end tag           |
+ 212:main.c        **** | 4) Converts manchester code (100110) to binary code (010)                   |
+ 213:main.c        **** \*****************************************************************************/
+ 214:main.c        **** void analizeInput (void) {
+ 707               		.stabn	68,0,214,.LM82-.LFBB8
+ 708               	.LM82:
+ 709               	.LFBB8:
+ 710 02ba 6F92      		push r6
+ 711 02bc 7F92      		push r7
+ 712 02be 8F92      		push r8
+ 713 02c0 9F92      		push r9
+ 714 02c2 AF92      		push r10
+ 715 02c4 BF92      		push r11
+ 716 02c6 CF92      		push r12
+ 717 02c8 DF92      		push r13
+ 718 02ca EF92      		push r14
+ 719 02cc FF92      		push r15
+ 720 02ce 0F93      		push r16
+ 721 02d0 1F93      		push r17
+ 722 02d2 DF93      		push r29
+ 723 02d4 CF93      		push r28
+ 724 02d6 CDB7      		in r28,__SP_L__
+ 725 02d8 DEB7      		in r29,__SP_H__
+ 726 02da CE50      		subi r28,lo8(-(-270))
+ 727 02dc D140      		sbci r29,hi8(-(-270))
+ 728 02de 0FB6      		in __tmp_reg__,__SREG__
+ 729 02e0 F894      		cli
+ 730 02e2 DEBF      		out __SP_H__,r29
+ 731 02e4 0FBE      		out __SREG__,__tmp_reg__
+ 732 02e6 CDBF      		out __SP_L__,r28
+ 733               	/* prologue: function */
+ 734               	/* frame size = 270 */
+ 735               	/* stack size = 284 */
+ 736               	.L__stack_usage = 284
+ 215:main.c        ****   int i;              // Generic for loop 'i' counter
+ 216:main.c        ****   int inARow = 0;     // number of identical bits in a row
+ 217:main.c        ****   int lastVal = 0;    // value of the identical bits in a row
+ 218:main.c        ****   int resultArray[90];  // Parsed Bit code in manchester
+ 219:main.c        ****   int resultArray_index = 0;
+ 220:main.c        ****   int finalArray[45];   //Parsed Bit Code out of manchester
+ 221:main.c        ****   int finalArray_index = 0;
+ 222:main.c        ****   
+ 223:main.c        ****   // Initilize the arrays to 2 so that any errors show up as 2s
+ 224:main.c        ****   for (i = 0; i < 90; i ++) {
+ 225:main.c        ****     resultArray[i] = 2;
+ 226:main.c        ****   }
+ 227:main.c        ****   for (i = 0; i < 45; i++) {
+GAS LISTING /tmp/ccnSCpy9.s 			page 18
+
+
+ 228:main.c        ****     finalArray[i] = 2;
+ 229:main.c        ****   }
+ 230:main.c        ****   
+ 231:main.c        ****   
+ 232:main.c        ****   // uncomment this line ( (/*)->(//*) ) to displa
+ 233:main.c        ****   /*
+ 234:main.c        ****   USART_Transmit(0);
+ 235:main.c        ****   USART_Transmit(0);
+ 236:main.c        ****   USART_Transmit(0);
+ 237:main.c        ****   for (i = 0; i < ARRAYSIZE; i++) {
+ 238:main.c        ****     USART_Transmit(begin[i]);
+ 239:main.c        ****   }
+ 240:main.c        ****   // Send newline
+ 241:main.c        ****   USART_Transmit(-1);
+ 242:main.c        ****   /**/
+ 243:main.c        ****   
+ 244:main.c        ****   // Convert raw data to 1, 0, and error (99)
+ 245:main.c        ****   #ifdef distance_far
+ 246:main.c        ****   // far range will allow you to read the card from
+ 247:main.c        ****   // farther away and probably still be as accurate
+ 248:main.c        ****     for (i = 1; i < ARRAYSIZE; i++) {
+ 249:main.c        ****       if (begin[i] == 5) {
+ 250:main.c        ****         begin[i] = 0;
+ 251:main.c        ****       }
+ 252:main.c        ****       else if (begin[i] == 7) {
+ 253:main.c        ****         begin[i] = 1;
+ 254:main.c        ****       }
+ 255:main.c        ****       else if (begin[i] == 6) {
+ 256:main.c        ****          begin[i] = begin[i-1];
+ 257:main.c        ****       }
+ 258:main.c        ****       else {
+ 259:main.c        ****         begin[i] = -2;
+ 260:main.c        ****       }
+ 261:main.c        ****     }
+ 262:main.c        ****   #endif
+ 263:main.c        ****   /*
+ 264:main.c        ****   for (i = 0; i < ARRAYSIZE; i++) {
+ 265:main.c        ****     USART_Transmit(begin[i]);
+ 266:main.c        ****   }
+ 267:main.c        ****   // Send newline
+ 268:main.c        ****   USART_Transmit(-1);
+ 269:main.c        ****   /**/
+ 270:main.c        ****   // Find Start Tag
+ 271:main.c        ****   
+ 272:main.c        ****   for (i = 0; i < ARRAYSIZE; i++) {
+ 273:main.c        ****     if (begin [i] == lastVal) {
+ 274:main.c        ****       inARow++;
+ 275:main.c        ****     }
+ 276:main.c        ****     else {
+ 277:main.c        ****       // End of the group of bits with the same value
+ 278:main.c        ****       if (inARow >= 15 && lastVal == 1) {
+ 279:main.c        ****         // Start tag found
+ 280:main.c        ****         break;
+ 281:main.c        ****       }
+ 282:main.c        ****       // group of bits was not a start tag, search next tag
+ 283:main.c        ****       inARow = 1;
+ 284:main.c        ****       lastVal = begin[i];
+GAS LISTING /tmp/ccnSCpy9.s 			page 19
+
+
+ 285:main.c        ****     }
+ 286:main.c        ****   }
+ 287:main.c        ****   int start = i;
+ 288:main.c        ****   PORTB |= 0x10;
+ 289:main.c        ****   // PARSE TO BIT DATA
+ 290:main.c        ****   
+ 291:main.c        ****   for (;i < ARRAYSIZE; i++) {
+ 292:main.c        ****     if (begin [i] == lastVal) {
+ 293:main.c        ****       inARow++;
+ 294:main.c        ****     }
+ 295:main.c        ****     else {
+ 296:main.c        ****       // End of the group of bits with the same value
+ 297:main.c        ****       if (inARow >= 4 && inARow <= 8) {
+ 298:main.c        ****         // there are between 4 and 8 bits of the same value in a row
+ 299:main.c        ****         // Add one bit to the resulting array
+ 300:main.c        ****         resultArray[resultArray_index] = lastVal;
+ 301:main.c        ****         resultArray_index += 1;
+ 302:main.c        ****       }
+ 303:main.c        ****       else if (inARow >= 9 && inARow <= 14) {
+ 304:main.c        ****         // there are between 9 and 14 bits of the same value in a row
+ 305:main.c        ****         // Add two bits to the resulting array
+ 306:main.c        ****         resultArray[resultArray_index] = lastVal;
+ 307:main.c        ****         resultArray[resultArray_index+1] = lastVal;
+ 308:main.c        ****         resultArray_index += 2;
+ 309:main.c        ****       }
+ 310:main.c        ****       else if (inARow >= 15 && lastVal == 0) {
+ 311:main.c        ****         // there are more then 15 identical bits in a row, and they are 0s
+ 312:main.c        ****         // this is an end tag
+ 313:main.c        ****         break;
+ 314:main.c        ****       }
+ 315:main.c        ****       // group of bits was not the end tag, continue parsing data
+ 316:main.c        ****       inARow = 1;
+ 317:main.c        ****       lastVal = begin[i];
+ 318:main.c        ****       if (resultArray_index >= 90) {
+ 319:main.c        ****         //return;
+ 320:main.c        ****       }
+ 321:main.c        ****     }
+ 322:main.c        ****   }
+ 323:main.c        ****   
+ 324:main.c        ****   // Error checking
+ 325:main.c        ****   for (i = 0; i < 88; i++) { // ignore the parody bit ([88][89])
+ 326:main.c        ****     if (resultArray[i] == 2) {
+ 327:main.c        ****       return;
+ 328:main.c        ****     }
+ 329:main.c        ****   }
+ 330:main.c        ****   
+ 331:main.c        ****   // MANCHESTER DECODING
+ 332:main.c        ****   for (i = 0; i < 88; i+=2) { // ignore the parody bit ([88][89])
+ 333:main.c        ****     if (resultArray[i] == 1 && resultArray[i+1] == 0) {
+ 334:main.c        ****       finalArray[finalArray_index] = 1;
+ 335:main.c        ****     }
+ 336:main.c        ****     else if (resultArray[i] == 0 && resultArray[i+1] == 1) {
+ 337:main.c        ****       finalArray[finalArray_index] = 0;
+ 338:main.c        ****     }
+ 339:main.c        ****     else {
+ 340:main.c        ****       // The read code is not in manchester, ignore this read tag and try again
+ 341:main.c        ****       // free the allocated memory and end the function
+GAS LISTING /tmp/ccnSCpy9.s 			page 20
+
+
+ 342:main.c        ****       return;
+ 343:main.c        ****     }
+ 344:main.c        ****     finalArray_index++;
+ 345:main.c        ****   }
+ 346:main.c        ****   
+ 347:main.c        ****   // Send final code over serial
+ 348:main.c        ****   //*
+ 349:main.c        ****   for (i = 0; i < 45; i ++) {
+ 350:main.c        ****     USART_Transmit(finalArray[i]);
+ 351:main.c        ****   }
+ 352:main.c        ****   // Send newline
+ 353:main.c        ****   USART_Transmit(-1);
+ 354:main.c        ****   /**/
+ 355:main.c        ****   if (searchTag(convertInput (finalArray))){
+ 356:main.c        ****     PORTB |= 0x04;
+ 357:main.c        ****     // open the door
+ 358:main.c        ****     OCR1A = 10000 - SERVO_OPEN;
+ 359:main.c        ****   {
+ 360:main.c        ****     unsigned long i;
+ 361:main.c        ****     for (i = 0; i < 2500000; i++) {
+ 362:main.c        ****       //asm volatile ("nop");
+ 363:main.c        ****       if (!((PINB & (1<<7))>>7)) {
+ 364:main.c        ****         break;
+ 365:main.c        ****       }
+ 366:main.c        ****     }
+ 367:main.c        ****   }
+ 368:main.c        ****   //close the door
+ 369:main.c        ****   OCR1A = 10000 - SERVO_CLOSE;
+ 737               		.stabn	68,0,369,.LM83-.LFBB8
+ 738               	.LM83:
+ 739 02e8 FE01      		movw r30,r28
+ 740 02ea E55A      		subi r30,lo8(-(91))
+ 741 02ec FF4F      		sbci r31,hi8(-(91))
+ 214:main.c        **** void analizeInput (void) {
+ 742               		.stabn	68,0,214,.LM84-.LFBB8
+ 743               	.LM84:
+ 744 02ee 9E01      		movw r18,r28
+ 745 02f0 215F      		subi r18,lo8(-(271))
+ 746 02f2 3E4F      		sbci r19,hi8(-(271))
+ 747 02f4 DF01      		movw r26,r30
+ 225:main.c        ****     resultArray[i] = 2;
+ 748               		.stabn	68,0,225,.LM85-.LFBB8
+ 749               	.LM85:
+ 750 02f6 82E0      		ldi r24,lo8(2)
+ 751 02f8 90E0      		ldi r25,hi8(2)
+ 752               	.L45:
+ 225:main.c        ****     resultArray[i] = 2;
+ 753               		.stabn	68,0,225,.LM86-.LFBB8
+ 754               	.LM86:
+ 755 02fa 8D93      		st X+,r24
+ 756 02fc 9D93      		st X+,r25
+ 224:main.c        ****   for (i = 0; i < 90; i ++) {
+ 757               		.stabn	68,0,224,.LM87-.LFBB8
+ 758               	.LM87:
+ 759 02fe A217      		cp r26,r18
+ 760 0300 B307      		cpc r27,r19
+ 761 0302 01F4      		brne .L45
+GAS LISTING /tmp/ccnSCpy9.s 			page 21
+
+
+ 224:main.c        ****   for (i = 0; i < 90; i ++) {
+ 762               		.stabn	68,0,224,.LM88-.LFBB8
+ 763               	.LM88:
+ 764 0304 7E01      		movw r14,r28
+ 765 0306 0894      		sec
+ 766 0308 E11C      		adc r14,__zero_reg__
+ 767 030a F11C      		adc r15,__zero_reg__
+ 214:main.c        **** void analizeInput (void) {
+ 768               		.stabn	68,0,214,.LM89-.LFBB8
+ 769               	.LM89:
+ 770 030c BBE5      		ldi r27,lo8(91)
+ 771 030e 8B2E      		mov r8,r27
+ 772 0310 912C      		mov r9,__zero_reg__
+ 773 0312 8C0E      		add r8,r28
+ 774 0314 9D1E      		adc r9,r29
+ 775 0316 D701      		movw r26,r14
+ 228:main.c        ****     finalArray[i] = 2;
+ 776               		.stabn	68,0,228,.LM90-.LFBB8
+ 777               	.LM90:
+ 778 0318 82E0      		ldi r24,lo8(2)
+ 779 031a 90E0      		ldi r25,hi8(2)
+ 780               	.L46:
+ 228:main.c        ****     finalArray[i] = 2;
+ 781               		.stabn	68,0,228,.LM91-.LFBB8
+ 782               	.LM91:
+ 783 031c 8D93      		st X+,r24
+ 784 031e 9D93      		st X+,r25
+ 227:main.c        ****   for (i = 0; i < 45; i++) {
+ 785               		.stabn	68,0,227,.LM92-.LFBB8
+ 786               	.LM92:
+ 787 0320 A815      		cp r26,r8
+ 788 0322 B905      		cpc r27,r9
+ 789 0324 01F4      		brne .L46
+ 227:main.c        ****   for (i = 0; i < 45; i++) {
+ 790               		.stabn	68,0,227,.LM93-.LFBB8
+ 791               	.LM93:
+ 792 0326 A091 0000 		lds r26,begin
+ 793 032a B091 0000 		lds r27,begin+1
+ 273:main.c        ****     if (begin [i] == lastVal) {
+ 794               		.stabn	68,0,273,.LM94-.LFBB8
+ 795               	.LM94:
+ 796 032e 40E0      		ldi r20,lo8(0)
+ 797 0330 50E0      		ldi r21,hi8(0)
+ 798 0332 80E0      		ldi r24,lo8(0)
+ 799 0334 90E0      		ldi r25,hi8(0)
+ 800 0336 60E0      		ldi r22,lo8(0)
+ 801 0338 70E0      		ldi r23,hi8(0)
+ 802 033a 00C0      		rjmp .L50
+ 803               	.L71:
+ 804 033c A901      		movw r20,r18
+ 805               	.L50:
+ 806 033e 2D91      		ld r18,X+
+ 807 0340 3D91      		ld r19,X+
+ 808 0342 2417      		cp r18,r20
+ 809 0344 3507      		cpc r19,r21
+ 810 0346 01F4      		brne .L47
+ 274:main.c        ****       inARow++;
+GAS LISTING /tmp/ccnSCpy9.s 			page 22
+
+
+ 811               		.stabn	68,0,274,.LM95-.LFBB8
+ 812               	.LM95:
+ 813 0348 0196      		adiw r24,1
+ 814 034a 00C0      		rjmp .L48
+ 815               	.L47:
+ 278:main.c        ****       if (inARow >= 15 && lastVal == 1) {
+ 816               		.stabn	68,0,278,.LM96-.LFBB8
+ 817               	.LM96:
+ 818 034c 8F30      		cpi r24,15
+ 819 034e 9105      		cpc r25,__zero_reg__
+ 820 0350 04F0      		brlt .L69
+ 278:main.c        ****       if (inARow >= 15 && lastVal == 1) {
+ 821               		.stabn	68,0,278,.LM97-.LFBB8
+ 822               	.LM97:
+ 823 0352 4130      		cpi r20,1
+ 824 0354 5105      		cpc r21,__zero_reg__
+ 825 0356 01F0      		breq .L70
+ 826               	.L69:
+ 283:main.c        ****       inARow = 1;
+ 827               		.stabn	68,0,283,.LM98-.LFBB8
+ 828               	.LM98:
+ 829 0358 81E0      		ldi r24,lo8(1)
+ 830 035a 90E0      		ldi r25,hi8(1)
+ 831               	.L48:
+ 272:main.c        ****   for (i = 0; i < ARRAYSIZE; i++) {
+ 832               		.stabn	68,0,272,.LM99-.LFBB8
+ 833               	.LM99:
+ 834 035c 6F5F      		subi r22,lo8(-(1))
+ 835 035e 7F4F      		sbci r23,hi8(-(1))
+ 836 0360 43E0      		ldi r20,hi8(900)
+ 837 0362 6438      		cpi r22,lo8(900)
+ 838 0364 7407      		cpc r23,r20
+ 839 0366 01F4      		brne .L71
+ 840 0368 00C0      		rjmp .L49
+ 841               	.L70:
+ 278:main.c        ****       if (inARow >= 15 && lastVal == 1) {
+ 842               		.stabn	68,0,278,.LM100-.LFBB8
+ 843               	.LM100:
+ 844 036a 21E0      		ldi r18,lo8(1)
+ 845 036c 30E0      		ldi r19,hi8(1)
+ 846               	.L49:
+ 288:main.c        ****   PORTB |= 0x10;
+ 847               		.stabn	68,0,288,.LM101-.LFBB8
+ 848               	.LM101:
+ 849 036e 2C9A      		sbi 37-32,4
+ 214:main.c        **** void analizeInput (void) {
+ 850               		.stabn	68,0,214,.LM102-.LFBB8
+ 851               	.LM102:
+ 852 0370 AB01      		movw r20,r22
+ 853 0372 440F      		lsl r20
+ 854 0374 551F      		rol r21
+ 855 0376 6090 0000 		lds r6,begin
+ 856 037a 7090 0000 		lds r7,begin+1
+ 857 037e 640E      		add r6,r20
+ 858 0380 751E      		adc r7,r21
+ 219:main.c        ****   int resultArray_index = 0;
+ 859               		.stabn	68,0,219,.LM103-.LFBB8
+GAS LISTING /tmp/ccnSCpy9.s 			page 23
+
+
+ 860               	.LM103:
+ 861 0382 40E0      		ldi r20,lo8(0)
+ 862 0384 50E0      		ldi r21,hi8(0)
+ 306:main.c        ****         resultArray[resultArray_index] = lastVal;
+ 863               		.stabn	68,0,306,.LM104-.LFBB8
+ 864               	.LM104:
+ 865 0386 0BE5      		ldi r16,lo8(91)
+ 866 0388 C02E      		mov r12,r16
+ 867 038a D12C      		mov r13,__zero_reg__
+ 868 038c CC0E      		add r12,r28
+ 869 038e DD1E      		adc r13,r29
+ 291:main.c        ****   for (;i < ARRAYSIZE; i++) {
+ 870               		.stabn	68,0,291,.LM105-.LFBB8
+ 871               	.LM105:
+ 872 0390 00C0      		rjmp .L51
+ 873               	.L58:
+ 292:main.c        ****     if (begin [i] == lastVal) {
+ 874               		.stabn	68,0,292,.LM106-.LFBB8
+ 875               	.LM106:
+ 876 0392 D301      		movw r26,r6
+ 877 0394 AD90      		ld r10,X+
+ 878 0396 BD90      		ld r11,X+
+ 879 0398 3D01      		movw r6,r26
+ 880 039a A216      		cp r10,r18
+ 881 039c B306      		cpc r11,r19
+ 882 039e 01F4      		brne .L52
+ 293:main.c        ****       inARow++;
+ 883               		.stabn	68,0,293,.LM107-.LFBB8
+ 884               	.LM107:
+ 885 03a0 0196      		adiw r24,1
+ 886 03a2 00C0      		rjmp .L53
+ 887               	.L52:
+ 297:main.c        ****       if (inARow >= 4 && inARow <= 8) {
+ 888               		.stabn	68,0,297,.LM108-.LFBB8
+ 889               	.LM108:
+ 890 03a4 8C01      		movw r16,r24
+ 891 03a6 0450      		subi r16,lo8(-(-4))
+ 892 03a8 1040      		sbci r17,hi8(-(-4))
+ 893 03aa 0530      		cpi r16,5
+ 894 03ac 1105      		cpc r17,__zero_reg__
+ 895 03ae 00F4      		brsh .L54
+ 300:main.c        ****         resultArray[resultArray_index] = lastVal;
+ 896               		.stabn	68,0,300,.LM109-.LFBB8
+ 897               	.LM109:
+ 898 03b0 CA01      		movw r24,r20
+ 899 03b2 880F      		lsl r24
+ 900 03b4 991F      		rol r25
+ 901 03b6 8C0D      		add r24,r12
+ 902 03b8 9D1D      		adc r25,r13
+ 903 03ba DC01      		movw r26,r24
+ 904 03bc 1196      		adiw r26,1
+ 905 03be 3C93      		st X,r19
+ 906 03c0 2E93      		st -X,r18
+ 301:main.c        ****         resultArray_index += 1;
+ 907               		.stabn	68,0,301,.LM110-.LFBB8
+ 908               	.LM110:
+ 909 03c2 4F5F      		subi r20,lo8(-(1))
+GAS LISTING /tmp/ccnSCpy9.s 			page 24
+
+
+ 910 03c4 5F4F      		sbci r21,hi8(-(1))
+ 911 03c6 00C0      		rjmp .L55
+ 912               	.L54:
+ 303:main.c        ****       else if (inARow >= 9 && inARow <= 14) {
+ 913               		.stabn	68,0,303,.LM111-.LFBB8
+ 914               	.LM111:
+ 915 03c8 8C01      		movw r16,r24
+ 916 03ca 0950      		subi r16,lo8(-(-9))
+ 917 03cc 1040      		sbci r17,hi8(-(-9))
+ 918 03ce 0630      		cpi r16,6
+ 919 03d0 1105      		cpc r17,__zero_reg__
+ 920 03d2 00F4      		brsh .L56
+ 306:main.c        ****         resultArray[resultArray_index] = lastVal;
+ 921               		.stabn	68,0,306,.LM112-.LFBB8
+ 922               	.LM112:
+ 923 03d4 CA01      		movw r24,r20
+ 924 03d6 880F      		lsl r24
+ 925 03d8 991F      		rol r25
+ 926 03da 8C0D      		add r24,r12
+ 927 03dc 9D1D      		adc r25,r13
+ 928 03de DC01      		movw r26,r24
+ 929 03e0 2D93      		st X+,r18
+ 930 03e2 3C93      		st X,r19
+ 307:main.c        ****         resultArray[resultArray_index+1] = lastVal;
+ 931               		.stabn	68,0,307,.LM113-.LFBB8
+ 932               	.LM113:
+ 933 03e4 CA01      		movw r24,r20
+ 934 03e6 0196      		adiw r24,1
+ 935 03e8 880F      		lsl r24
+ 936 03ea 991F      		rol r25
+ 937 03ec 8C0D      		add r24,r12
+ 938 03ee 9D1D      		adc r25,r13
+ 939 03f0 DC01      		movw r26,r24
+ 940 03f2 1196      		adiw r26,1
+ 941 03f4 3C93      		st X,r19
+ 942 03f6 2E93      		st -X,r18
+ 308:main.c        ****         resultArray_index += 2;
+ 943               		.stabn	68,0,308,.LM114-.LFBB8
+ 944               	.LM114:
+ 945 03f8 4E5F      		subi r20,lo8(-(2))
+ 946 03fa 5F4F      		sbci r21,hi8(-(2))
+ 947 03fc 00C0      		rjmp .L55
+ 948               	.L56:
+ 310:main.c        ****       else if (inARow >= 15 && lastVal == 0) {
+ 949               		.stabn	68,0,310,.LM115-.LFBB8
+ 950               	.LM115:
+ 951 03fe 8F30      		cpi r24,15
+ 952 0400 9105      		cpc r25,__zero_reg__
+ 953 0402 04F0      		brlt .L55
+ 310:main.c        ****       else if (inARow >= 15 && lastVal == 0) {
+ 954               		.stabn	68,0,310,.LM116-.LFBB8
+ 955               	.LM116:
+ 956 0404 2115      		cp r18,__zero_reg__
+ 957 0406 3105      		cpc r19,__zero_reg__
+ 958 0408 01F0      		breq .L57
+ 959               	.L55:
+ 316:main.c        ****       inARow = 1;
+GAS LISTING /tmp/ccnSCpy9.s 			page 25
+
+
+ 960               		.stabn	68,0,316,.LM117-.LFBB8
+ 961               	.LM117:
+ 962 040a 81E0      		ldi r24,lo8(1)
+ 963 040c 90E0      		ldi r25,hi8(1)
+ 964               	.L53:
+ 291:main.c        ****   for (;i < ARRAYSIZE; i++) {
+ 965               		.stabn	68,0,291,.LM118-.LFBB8
+ 966               	.LM118:
+ 967 040e 6F5F      		subi r22,lo8(-(1))
+ 968 0410 7F4F      		sbci r23,hi8(-(1))
+ 969 0412 9501      		movw r18,r10
+ 970               	.L51:
+ 291:main.c        ****   for (;i < ARRAYSIZE; i++) {
+ 971               		.stabn	68,0,291,.LM119-.LFBB8
+ 972               	.LM119:
+ 973 0414 B3E0      		ldi r27,hi8(900)
+ 974 0416 6438      		cpi r22,lo8(900)
+ 975 0418 7B07      		cpc r23,r27
+ 976 041a 04F4      		brge .+2
+ 977 041c 00C0      		rjmp .L58
+ 978               	.L57:
+ 214:main.c        **** void analizeInput (void) {
+ 979               		.stabn	68,0,214,.LM120-.LFBB8
+ 980               	.LM120:
+ 981 041e 9F01      		movw r18,r30
+ 982 0420 2055      		subi r18,lo8(-(176))
+ 983 0422 3F4F      		sbci r19,hi8(-(176))
+ 984 0424 DF01      		movw r26,r30
+ 985               	.L60:
+ 326:main.c        ****     if (resultArray[i] == 2) {
+ 986               		.stabn	68,0,326,.LM121-.LFBB8
+ 987               	.LM121:
+ 988 0426 8D91      		ld r24,X+
+ 989 0428 9D91      		ld r25,X+
+ 990 042a 8230      		cpi r24,2
+ 991 042c 9105      		cpc r25,__zero_reg__
+ 992 042e 01F4      		brne .+2
+ 993 0430 00C0      		rjmp .L44
+ 325:main.c        ****   for (i = 0; i < 88; i++) { // ignore the parody bit ([88][89])
+ 994               		.stabn	68,0,325,.LM122-.LFBB8
+ 995               	.LM122:
+ 996 0432 A217      		cp r26,r18
+ 997 0434 B307      		cpc r27,r19
+ 998 0436 01F4      		brne .L60
+ 999 0438 D701      		movw r26,r14
+ 1000               	.L63:
+ 333:main.c        ****     if (resultArray[i] == 1 && resultArray[i+1] == 0) {
+ 1001               		.stabn	68,0,333,.LM123-.LFBB8
+ 1002               	.LM123:
+ 1003 043a 8081      		ld r24,Z
+ 1004 043c 9181      		ldd r25,Z+1
+ 1005 043e 8130      		cpi r24,1
+ 1006 0440 9105      		cpc r25,__zero_reg__
+ 1007 0442 01F4      		brne .L61
+ 333:main.c        ****     if (resultArray[i] == 1 && resultArray[i+1] == 0) {
+ 1008               		.stabn	68,0,333,.LM124-.LFBB8
+ 1009               	.LM124:
+GAS LISTING /tmp/ccnSCpy9.s 			page 26
+
+
+ 1010 0444 4281      		ldd r20,Z+2
+ 1011 0446 5381      		ldd r21,Z+3
+ 1012 0448 4115      		cp r20,__zero_reg__
+ 1013 044a 5105      		cpc r21,__zero_reg__
+ 1014 044c 01F0      		breq .+2
+ 1015 044e 00C0      		rjmp .L44
+ 334:main.c        ****       finalArray[finalArray_index] = 1;
+ 1016               		.stabn	68,0,334,.LM125-.LFBB8
+ 1017               	.LM125:
+ 1018 0450 1196      		adiw r26,1
+ 1019 0452 9C93      		st X,r25
+ 1020 0454 8E93      		st -X,r24
+ 1021 0456 00C0      		rjmp .L62
+ 1022               	.L61:
+ 336:main.c        ****     else if (resultArray[i] == 0 && resultArray[i+1] == 1) {
+ 1023               		.stabn	68,0,336,.LM126-.LFBB8
+ 1024               	.LM126:
+ 1025 0458 0097      		sbiw r24,0
+ 1026 045a 01F0      		breq .+2
+ 1027 045c 00C0      		rjmp .L44
+ 336:main.c        ****     else if (resultArray[i] == 0 && resultArray[i+1] == 1) {
+ 1028               		.stabn	68,0,336,.LM127-.LFBB8
+ 1029               	.LM127:
+ 1030 045e 8281      		ldd r24,Z+2
+ 1031 0460 9381      		ldd r25,Z+3
+ 1032 0462 8130      		cpi r24,1
+ 1033 0464 9105      		cpc r25,__zero_reg__
+ 1034 0466 01F0      		breq .+2
+ 1035 0468 00C0      		rjmp .L44
+ 337:main.c        ****       finalArray[finalArray_index] = 0;
+ 1036               		.stabn	68,0,337,.LM128-.LFBB8
+ 1037               	.LM128:
+ 1038 046a 1196      		adiw r26,1
+ 1039 046c 1C92      		st X,__zero_reg__
+ 1040 046e 1E92      		st -X,__zero_reg__
+ 1041               	.L62:
+ 1042 0470 3496      		adiw r30,4
+ 1043 0472 1296      		adiw r26,2
+ 332:main.c        ****   for (i = 0; i < 88; i+=2) { // ignore the parody bit ([88][89])
+ 1044               		.stabn	68,0,332,.LM129-.LFBB8
+ 1045               	.LM129:
+ 1046 0474 E217      		cp r30,r18
+ 1047 0476 F307      		cpc r31,r19
+ 1048 0478 01F4      		brne .L63
+ 1049               	.L72:
+ 350:main.c        ****     USART_Transmit(finalArray[i]);
+ 1050               		.stabn	68,0,350,.LM130-.LFBB8
+ 1051               	.LM130:
+ 1052 047a F701      		movw r30,r14
+ 1053 047c 8191      		ld r24,Z+
+ 1054 047e 9191      		ld r25,Z+
+ 1055 0480 7F01      		movw r14,r30
+ 1056 0482 0E94 0000 		call USART_Transmit
+ 349:main.c        ****   for (i = 0; i < 45; i ++) {
+ 1057               		.stabn	68,0,349,.LM131-.LFBB8
+ 1058               	.LM131:
+ 1059 0486 E814      		cp r14,r8
+GAS LISTING /tmp/ccnSCpy9.s 			page 27
+
+
+ 1060 0488 F904      		cpc r15,r9
+ 1061 048a 01F4      		brne .L72
+ 353:main.c        ****   USART_Transmit(-1);
+ 1062               		.stabn	68,0,353,.LM132-.LFBB8
+ 1063               	.LM132:
+ 1064 048c 8FEF      		ldi r24,lo8(-1)
+ 1065 048e 9FEF      		ldi r25,hi8(-1)
+ 1066 0490 0E94 0000 		call USART_Transmit
+ 355:main.c        ****   if (searchTag(convertInput (finalArray))){
+ 1067               		.stabn	68,0,355,.LM133-.LFBB8
+ 1068               	.LM133:
+ 1069 0494 CE01      		movw r24,r28
+ 1070 0496 0196      		adiw r24,1
+ 1071 0498 0E94 0000 		call convertInput
+ 1072 049c 0E94 0000 		call searchTag
+ 1073 04a0 0097      		sbiw r24,0
+ 1074 04a2 01F0      		breq .L65
+ 356:main.c        ****     PORTB |= 0x04;
+ 1075               		.stabn	68,0,356,.LM134-.LFBB8
+ 1076               	.LM134:
+ 1077 04a4 2A9A      		sbi 37-32,2
+ 358:main.c        ****     OCR1A = 10000 - SERVO_OPEN;
+ 1078               		.stabn	68,0,358,.LM135-.LFBB8
+ 1079               	.LM135:
+ 1080 04a6 81ED      		ldi r24,lo8(9425)
+ 1081 04a8 94E2      		ldi r25,hi8(9425)
+ 1082 04aa 9093 8900 		sts 136+1,r25
+ 1083 04ae 8093 8800 		sts 136,r24
+ 361:main.c        ****     for (i = 0; i < 2500000; i++) {
+ 1084               		.stabn	68,0,361,.LM136-.LFBB8
+ 1085               	.LM136:
+ 1086 04b2 80E0      		ldi r24,lo8(0)
+ 1087 04b4 90E0      		ldi r25,hi8(0)
+ 1088 04b6 DC01      		movw r26,r24
+ 1089               	.L67:
+ 1090               	.LBB2:
+ 363:main.c        ****       if (!((PINB & (1<<7))>>7)) {
+ 1091               		.stabn	68,0,363,.LM137-.LFBB8
+ 1092               	.LM137:
+ 1093 04b8 1F9B      		sbis 35-32,7
+ 1094 04ba 00C0      		rjmp .L66
+ 361:main.c        ****     for (i = 0; i < 2500000; i++) {
+ 1095               		.stabn	68,0,361,.LM138-.LFBB8
+ 1096               	.LM138:
+ 1097 04bc 0196      		adiw r24,1
+ 1098 04be A11D      		adc r26,__zero_reg__
+ 1099 04c0 B11D      		adc r27,__zero_reg__
+ 1100 04c2 803A      		cpi r24,lo8(2500000)
+ 1101 04c4 F5E2      		ldi r31,hi8(2500000)
+ 1102 04c6 9F07      		cpc r25,r31
+ 1103 04c8 F6E2      		ldi r31,hlo8(2500000)
+ 1104 04ca AF07      		cpc r26,r31
+ 1105 04cc F0E0      		ldi r31,hhi8(2500000)
+ 1106 04ce BF07      		cpc r27,r31
+ 1107 04d0 01F4      		brne .L67
+ 1108               	.L66:
+ 1109               	.LBE2:
+GAS LISTING /tmp/ccnSCpy9.s 			page 28
+
+
+ 1110               		.stabn	68,0,369,.LM139-.LFBB8
+ 1111               	.LM139:
+ 1112 04d2 88E2      		ldi r24,lo8(9000)
+ 1113 04d4 93E2      		ldi r25,hi8(9000)
+ 1114 04d6 9093 8900 		sts 136+1,r25
+ 1115 04da 8093 8800 		sts 136,r24
+ 1116 04de 80E2      		ldi r24,lo8(500000)
+ 1117 04e0 91EA      		ldi r25,hi8(500000)
+ 1118 04e2 A7E0      		ldi r26,hlo8(500000)
+ 1119 04e4 B0E0      		ldi r27,hhi8(500000)
+ 1120               	.L68:
+ 1121               	.LBB3:
+ 370:main.c        ****   {
+ 371:main.c        ****     unsigned long i;
+ 372:main.c        ****     for (i = 0; i < 500000; i++) {
+ 373:main.c        ****     asm volatile ("nop");
+ 1122               		.stabn	68,0,373,.LM140-.LFBB8
+ 1123               	.LM140:
+ 1124               	/* #APP */
+ 1125               	 ;  373 "main.c" 1
+ 1126 04e6 0000      		nop
+ 1127               	 ;  0 "" 2
+ 1128               	/* #NOAPP */
+ 1129 04e8 0197      		sbiw r24,1
+ 1130 04ea A109      		sbc r26,__zero_reg__
+ 1131 04ec B109      		sbc r27,__zero_reg__
+ 372:main.c        ****     for (i = 0; i < 500000; i++) {
+ 1132               		.stabn	68,0,372,.LM141-.LFBB8
+ 1133               	.LM141:
+ 1134 04ee 01F4      		brne .L68
+ 1135               	.LBE3:
+ 374:main.c        ****     }
+ 375:main.c        ****   }
+ 376:main.c        ****   OCR1A = 0;
+ 1136               		.stabn	68,0,376,.LM142-.LFBB8
+ 1137               	.LM142:
+ 1138 04f0 1092 8900 		sts 136+1,__zero_reg__
+ 1139 04f4 1092 8800 		sts 136,__zero_reg__
+ 1140 04f8 00C0      		rjmp .L80
+ 1141               	.L65:
+ 377:main.c        ****     wait (5000);
+ 378:main.c        ****   }
+ 379:main.c        ****   else {
+ 380:main.c        ****     PORTB |= 0x08;
+ 1142               		.stabn	68,0,380,.LM143-.LFBB8
+ 1143               	.LM143:
+ 1144 04fa 2B9A      		sbi 37-32,3
+ 1145               	.L80:
+ 381:main.c        ****     wait (5000);
+ 1146               		.stabn	68,0,381,.LM144-.LFBB8
+ 1147               	.LM144:
+ 1148 04fc 68E8      		ldi r22,lo8(5000)
+ 1149 04fe 73E1      		ldi r23,hi8(5000)
+ 1150 0500 80E0      		ldi r24,hlo8(5000)
+ 1151 0502 90E0      		ldi r25,hhi8(5000)
+ 1152 0504 0E94 0000 		call wait
+ 1153               	.L44:
+GAS LISTING /tmp/ccnSCpy9.s 			page 29
+
+
+ 1154               	/* epilogue start */
+ 382:main.c        ****   }
+ 383:main.c        **** }
+ 1155               		.stabn	68,0,383,.LM145-.LFBB8
+ 1156               	.LM145:
+ 1157 0508 C25F      		subi r28,lo8(-(270))
+ 1158 050a DE4F      		sbci r29,hi8(-(270))
+ 1159 050c 0FB6      		in __tmp_reg__,__SREG__
+ 1160 050e F894      		cli
+ 1161 0510 DEBF      		out __SP_H__,r29
+ 1162 0512 0FBE      		out __SREG__,__tmp_reg__
+ 1163 0514 CDBF      		out __SP_L__,r28
+ 1164 0516 CF91      		pop r28
+ 1165 0518 DF91      		pop r29
+ 1166 051a 1F91      		pop r17
+ 1167 051c 0F91      		pop r16
+ 1168 051e FF90      		pop r15
+ 1169 0520 EF90      		pop r14
+ 1170 0522 DF90      		pop r13
+ 1171 0524 CF90      		pop r12
+ 1172 0526 BF90      		pop r11
+ 1173 0528 AF90      		pop r10
+ 1174 052a 9F90      		pop r9
+ 1175 052c 8F90      		pop r8
+ 1176 052e 7F90      		pop r7
+ 1177 0530 6F90      		pop r6
+ 1178 0532 0895      		ret
+ 1179               		.size	analizeInput, .-analizeInput
+ 1180               		.stabs	"i:r(0,1)",64,0,215,22
+ 1181               		.stabs	"inARow:r(0,1)",64,0,216,24
+ 1182               		.stabs	"resultArray:(0,17)=ar(0,18)=r(0,18);0;0177777;;0;89;(0,1)",128,0,218,91
+ 1183               		.stabs	"resultArray_index:r(0,1)",64,0,219,20
+ 1184               		.stabs	"finalArray:(0,19)=ar(0,18);0;44;(0,1)",128,0,220,1
+ 1185               		.stabn	192,0,0,.LFBB8-.LFBB8
+ 1186               		.stabs	"i:r(0,5)",64,0,360,24
+ 1187               		.stabn	192,0,0,.LBB2-.LFBB8
+ 1188               		.stabn	224,0,0,.LBE2-.LFBB8
+ 1189               		.stabn	224,0,0,.Lscope8-.LFBB8
+ 1190               	.Lscope8:
+ 1191               		.stabs	"",36,0,0,.Lscope8-.LFBB8
+ 1192               		.stabd	78,0,0
+ 1193               		.stabs	"main:F(0,1)",36,0,389,main
+ 1194               	.global	main
+ 1195               		.type	main, @function
+ 1196               	main:
+ 1197               		.stabd	46,0,0
+ 384:main.c        **** 
+ 385:main.c        **** 
+ 386:main.c        **** /******************************* MAIN FUNCTION *******************************\
+ 387:main.c        **** |
+ 388:main.c        **** \*****************************************************************************/
+ 389:main.c        **** int main (void) {
+ 1198               		.stabn	68,0,389,.LM146-.LFBB9
+ 1199               	.LM146:
+ 1200               	.LFBB9:
+ 1201               	/* prologue: function */
+ 1202               	/* frame size = 0 */
+GAS LISTING /tmp/ccnSCpy9.s 			page 30
+
+
+ 1203               	/* stack size = 0 */
+ 1204               	.L__stack_usage = 0
+ 390:main.c        ****   addNames(); // Load the list of valid ID tags
+ 1205               		.stabn	68,0,390,.LM147-.LFBB9
+ 1206               	.LM147:
+ 1207 0534 0E94 0000 		call addNames
+ 391:main.c        ****   int i = 0;
+ 392:main.c        ****   
+ 393:main.c        ****   // PIN INITILIZATION
+ 394:main.c        ****   DDRD = 0x00;// 00000000 configure output on port D
+ 1208               		.stabn	68,0,394,.LM148-.LFBB9
+ 1209               	.LM148:
+ 1210 0538 1AB8      		out 42-32,__zero_reg__
+ 395:main.c        ****   DDRB = 0x1E;// 00011100 configure output on port B
+ 1211               		.stabn	68,0,395,.LM149-.LFBB9
+ 1212               	.LM149:
+ 1213 053a 8EE1      		ldi r24,lo8(30)
+ 1214 053c 84B9      		out 36-32,r24
+ 396:main.c        ****   
+ 397:main.c        ****   // SERVO INITILIZATION
+ 398:main.c        ****   ICR1 = 10000;// TOP count for the PWM TIMER
+ 1215               		.stabn	68,0,398,.LM150-.LFBB9
+ 1216               	.LM150:
+ 1217 053e 80E1      		ldi r24,lo8(10000)
+ 1218 0540 97E2      		ldi r25,hi8(10000)
+ 1219 0542 9093 8700 		sts 134+1,r25
+ 1220 0546 8093 8600 		sts 134,r24
+ 399:main.c        ****   // Set on match, clear on TOP
+ 400:main.c        ****   TCCR1A  = ((1 << COM1A1) | (1 << COM1A0));
+ 1221               		.stabn	68,0,400,.LM151-.LFBB9
+ 1222               	.LM151:
+ 1223 054a 80EC      		ldi r24,lo8(-64)
+ 1224 054c 8093 8000 		sts 128,r24
+ 401:main.c        ****   TCCR1B  = ((1 << CS11) | (1 << WGM13));
+ 1225               		.stabn	68,0,401,.LM152-.LFBB9
+ 1226               	.LM152:
+ 1227 0550 82E1      		ldi r24,lo8(18)
+ 1228 0552 8093 8100 		sts 129,r24
+ 402:main.c        ****   OCR1A = 10000 - SERVO_CLOSE;
+ 1229               		.stabn	68,0,402,.LM153-.LFBB9
+ 1230               	.LM153:
+ 1231 0556 88E2      		ldi r24,lo8(9000)
+ 1232 0558 93E2      		ldi r25,hi8(9000)
+ 1233 055a 9093 8900 		sts 136+1,r25
+ 1234 055e 8093 8800 		sts 136,r24
+ 1235 0562 80E2      		ldi r24,lo8(500000)
+ 1236 0564 91EA      		ldi r25,hi8(500000)
+ 1237 0566 A7E0      		ldi r26,hlo8(500000)
+ 1238 0568 B0E0      		ldi r27,hhi8(500000)
+ 1239               	.L82:
+ 1240               	.LBB4:
+ 403:main.c        ****   {
+ 404:main.c        ****     unsigned long j;
+ 405:main.c        ****     for (j = 0; j < 500000; j++) {
+ 406:main.c        ****       asm volatile ("nop");
+ 1241               		.stabn	68,0,406,.LM154-.LFBB9
+ 1242               	.LM154:
+GAS LISTING /tmp/ccnSCpy9.s 			page 31
+
+
+ 1243               	/* #APP */
+ 1244               	 ;  406 "main.c" 1
+ 1245 056a 0000      		nop
+ 1246               	 ;  0 "" 2
+ 1247               	/* #NOAPP */
+ 1248 056c 0197      		sbiw r24,1
+ 1249 056e A109      		sbc r26,__zero_reg__
+ 1250 0570 B109      		sbc r27,__zero_reg__
+ 405:main.c        ****     for (j = 0; j < 500000; j++) {
+ 1251               		.stabn	68,0,405,.LM155-.LFBB9
+ 1252               	.LM155:
+ 1253 0572 01F4      		brne .L82
+ 1254               	.LBE4:
+ 407:main.c        ****     }
+ 408:main.c        ****   }
+ 409:main.c        ****   OCR1A = 0;
+ 1255               		.stabn	68,0,409,.LM156-.LFBB9
+ 1256               	.LM156:
+ 1257 0574 1092 8900 		sts 136+1,__zero_reg__
+ 1258 0578 1092 8800 		sts 136,__zero_reg__
+ 410:main.c        ****   
+ 411:main.c        ****   //VARIABLE INITILIZATION
+ 412:main.c        ****   count = 0;
+ 1259               		.stabn	68,0,412,.LM157-.LFBB9
+ 1260               	.LM157:
+ 1261 057c 1092 0000 		sts count+1,__zero_reg__
+ 1262 0580 1092 0000 		sts count,__zero_reg__
+ 413:main.c        ****   begin = malloc (sizeof(char)*ARRAYSIZE);
+ 1263               		.stabn	68,0,413,.LM158-.LFBB9
+ 1264               	.LM158:
+ 1265 0584 84E8      		ldi r24,lo8(900)
+ 1266 0586 93E0      		ldi r25,hi8(900)
+ 1267 0588 0E94 0000 		call malloc
+ 1268 058c 8093 0000 		sts begin,r24
+ 1269 0590 9093 0000 		sts begin+1,r25
+ 414:main.c        ****   iter = 0;
+ 1270               		.stabn	68,0,414,.LM159-.LFBB9
+ 1271               	.LM159:
+ 1272 0594 1092 0000 		sts iter+1,__zero_reg__
+ 1273 0598 1092 0000 		sts iter,__zero_reg__
+ 1274 059c E82F      		mov r30,r24
+ 1275 059e F92F      		mov r31,r25
+ 389:main.c        **** int main (void) {
+ 1276               		.stabn	68,0,389,.LM160-.LFBB9
+ 1277               	.LM160:
+ 1278 05a0 CF01      		movw r24,r30
+ 1279 05a2 885F      		subi r24,lo8(-(1800))
+ 1280 05a4 984F      		sbci r25,hi8(-(1800))
+ 1281               	.L83:
+ 415:main.c        ****   for (i = 0; i < ARRAYSIZE; i ++) {
+ 416:main.c        ****     begin[i] = 0;
+ 1282               		.stabn	68,0,416,.LM161-.LFBB9
+ 1283               	.LM161:
+ 1284 05a6 1192      		st Z+,__zero_reg__
+ 1285 05a8 1192      		st Z+,__zero_reg__
+ 415:main.c        ****   for (i = 0; i < ARRAYSIZE; i ++) {
+ 1286               		.stabn	68,0,415,.LM162-.LFBB9
+GAS LISTING /tmp/ccnSCpy9.s 			page 32
+
+
+ 1287               	.LM162:
+ 1288 05aa E817      		cp r30,r24
+ 1289 05ac F907      		cpc r31,r25
+ 1290 05ae 01F4      		brne .L83
+ 417:main.c        ****   }
+ 418:main.c        ****   
+ 419:main.c        ****   // USART INITILIZATION
+ 420:main.c        ****   USART_Init();
+ 1291               		.stabn	68,0,420,.LM163-.LFBB9
+ 1292               	.LM163:
+ 1293 05b0 0E94 0000 		call USART_Init
+ 421:main.c        ****   
+ 422:main.c        ****   //INTERRUPT INITILAIZATION
+ 423:main.c        ****   sei ();       // enable global interrupts
+ 1294               		.stabn	68,0,423,.LM164-.LFBB9
+ 1295               	.LM164:
+ 1296               	/* #APP */
+ 1297               	 ;  423 "main.c" 1
+ 1298 05b4 7894      		sei
+ 1299               	 ;  0 "" 2
+ 424:main.c        ****   EICRA = 0x03; // configure interupt INT0
+ 1300               		.stabn	68,0,424,.LM165-.LFBB9
+ 1301               	.LM165:
+ 1302               	/* #NOAPP */
+ 1303 05b6 83E0      		ldi r24,lo8(3)
+ 1304 05b8 8093 6900 		sts 105,r24
+ 425:main.c        ****   EIMSK = 0x01; // enabe interrupt INT0
+ 1305               		.stabn	68,0,425,.LM166-.LFBB9
+ 1306               	.LM166:
+ 1307 05bc 81E0      		ldi r24,lo8(1)
+ 1308 05be 8DBB      		out 61-32,r24
+ 1309               	.L86:
+ 426:main.c        ****   //MAIN LOOP
+ 427:main.c        ****   while (1) {
+ 428:main.c        ****     //enable interrupts
+ 429:main.c        ****     sei();
+ 1310               		.stabn	68,0,429,.LM167-.LFBB9
+ 1311               	.LM167:
+ 1312               	/* #APP */
+ 1313               	 ;  429 "main.c" 1
+ 1314 05c0 7894      		sei
+ 1315               	 ;  0 "" 2
+ 1316               	/* #NOAPP */
+ 1317               	.L84:
+ 430:main.c        ****     // while the card is being read
+ 431:main.c        ****     while (1) {
+ 432:main.c        ****       if (iter >= ARRAYSIZE) {// when the card is finished being read
+ 1318               		.stabn	68,0,432,.LM168-.LFBB9
+ 1319               	.LM168:
+ 1320 05c2 8091 0000 		lds r24,iter
+ 1321 05c6 9091 0000 		lds r25,iter+1
+ 1322 05ca 23E0      		ldi r18,hi8(900)
+ 1323 05cc 8438      		cpi r24,lo8(900)
+ 1324 05ce 9207      		cpc r25,r18
+ 1325 05d0 04F0      		brlt .L84
+ 433:main.c        ****         cli(); // disable interrupts
+ 1326               		.stabn	68,0,433,.LM169-.LFBB9
+GAS LISTING /tmp/ccnSCpy9.s 			page 33
+
+
+ 1327               	.LM169:
+ 1328               	/* #APP */
+ 1329               	 ;  433 "main.c" 1
+ 1330 05d2 F894      		cli
+ 1331               	 ;  0 "" 2
+ 434:main.c        ****         break;
+ 435:main.c        ****       }
+ 436:main.c        ****     }  
+ 437:main.c        ****     
+ 438:main.c        ****     //analize the array of input
+ 439:main.c        ****     PORTB &= ~0x1C;
+ 1332               		.stabn	68,0,439,.LM170-.LFBB9
+ 1333               	.LM170:
+ 1334               	/* #NOAPP */
+ 1335 05d4 85B1      		in r24,37-32
+ 1336 05d6 837E      		andi r24,lo8(-29)
+ 1337 05d8 85B9      		out 37-32,r24
+ 440:main.c        ****     analizeInput ();
+ 1338               		.stabn	68,0,440,.LM171-.LFBB9
+ 1339               	.LM171:
+ 1340 05da 0E94 0000 		call analizeInput
+ 441:main.c        ****     //reset the card reader so it can read another card
+ 442:main.c        ****     count = 0;
+ 1341               		.stabn	68,0,442,.LM172-.LFBB9
+ 1342               	.LM172:
+ 1343 05de 1092 0000 		sts count+1,__zero_reg__
+ 1344 05e2 1092 0000 		sts count,__zero_reg__
+ 443:main.c        ****     iter = 0;
+ 1345               		.stabn	68,0,443,.LM173-.LFBB9
+ 1346               	.LM173:
+ 1347 05e6 1092 0000 		sts iter+1,__zero_reg__
+ 1348 05ea 1092 0000 		sts iter,__zero_reg__
+ 1349 05ee E091 0000 		lds r30,begin
+ 1350 05f2 F091 0000 		lds r31,begin+1
+ 444:main.c        ****     for (i = 0; i < ARRAYSIZE; i ++) {
+ 445:main.c        ****       begin[i] = 0;
+ 1351               		.stabn	68,0,445,.LM174-.LFBB9
+ 1352               	.LM174:
+ 1353 05f6 84E8      		ldi r24,lo8(900)
+ 1354 05f8 93E0      		ldi r25,hi8(900)
+ 1355               	.L85:
+ 1356               		.stabn	68,0,445,.LM175-.LFBB9
+ 1357               	.LM175:
+ 1358 05fa 1192      		st Z+,__zero_reg__
+ 1359 05fc 1192      		st Z+,__zero_reg__
+ 1360 05fe 0197      		sbiw r24,1
+ 444:main.c        ****     for (i = 0; i < ARRAYSIZE; i ++) {
+ 1361               		.stabn	68,0,444,.LM176-.LFBB9
+ 1362               	.LM176:
+ 1363 0600 01F4      		brne .L85
+ 1364 0602 00C0      		rjmp .L86
+ 1365               		.size	main, .-main
+ 1366               	.Lscope9:
+ 1367               		.stabs	"",36,0,0,.Lscope9-.LFBB9
+ 1368               		.stabd	78,0,0
+ 1369               		.comm begin,2,1
+ 1370               		.comm names,2,1
+GAS LISTING /tmp/ccnSCpy9.s 			page 34
+
+
+ 1371               		.comm namesize,2,1
+ 1372               		.comm iter,2,1
+ 1373               		.comm count,2,1
+ 1374               		.comm lastpulse,2,1
+ 1375               		.comm on,2,1
+ 1376               		.stabs	"begin:G(0,16)",32,0,58,0
+ 1377               		.stabs	"names:G(0,16)",32,0,59,0
+ 1378               		.stabs	"namesize:G(0,1)",32,0,60,0
+ 1379               		.stabs	"iter:G(0,20)=B(0,1)",32,0,61,0
+ 1380               		.stabs	"count:G(0,20)",32,0,62,0
+ 1381               		.stabs	"lastpulse:G(0,20)",32,0,63,0
+ 1382               		.stabs	"on:G(0,20)",32,0,64,0
+ 1383               		.stabs	"",100,0,0,.Letext0
+ 1384               	.Letext0:
+ 1385               	.global __do_clear_bss
+GAS LISTING /tmp/ccnSCpy9.s 			page 35
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+     /tmp/ccnSCpy9.s:2      *ABS*:000000000000003f __SREG__
+     /tmp/ccnSCpy9.s:3      *ABS*:000000000000003e __SP_H__
+     /tmp/ccnSCpy9.s:4      *ABS*:000000000000003d __SP_L__
+     /tmp/ccnSCpy9.s:5      *ABS*:0000000000000034 __CCP__
+     /tmp/ccnSCpy9.s:6      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccnSCpy9.s:7      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccnSCpy9.s:83     .text:0000000000000000 addNames
+                            *COM*:0000000000000002 namesize
+                            *COM*:0000000000000002 names
+     /tmp/ccnSCpy9.s:129    .text:0000000000000030 __vector_1
+                            *COM*:0000000000000002 on
+                            *COM*:0000000000000002 lastpulse
+                            *COM*:0000000000000002 iter
+                            *COM*:0000000000000002 count
+                            *COM*:0000000000000002 begin
+     /tmp/ccnSCpy9.s:230    .text:00000000000000e6 wait
+     /tmp/ccnSCpy9.s:284    .text:0000000000000106 USART_Init
+     /tmp/ccnSCpy9.s:320    .text:000000000000011e USART_Transmit
+     /tmp/ccnSCpy9.s:389    .text:000000000000015a convertInput
+     /tmp/ccnSCpy9.s:643    .text:0000000000000282 searchTag
+     /tmp/ccnSCpy9.s:705    .text:00000000000002ba analizeInput
+     /tmp/ccnSCpy9.s:1196   .text:0000000000000534 main
+
+UNDEFINED SYMBOLS
+malloc
+__do_clear_bss
