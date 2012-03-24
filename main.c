@@ -285,10 +285,7 @@ void parseMultiBitToSingleBit (char * buffer, int startOffset, int outputBuffer[
 \*****************************************************************************/
 void analizeInput (void) {
   int i;                // Generic for loop 'i' counter
-  int inARow = 0;       // number of identical bits in a row
-  int lastVal = 0;      // value of the identical bits in a row
   int resultArray[90];  // Parsed Bit code in manchester
-  int resultArray_index = 0;
   int finalArray[45];   //Parsed Bit Code out of manchester
   int finalArray_index = 0;
   
