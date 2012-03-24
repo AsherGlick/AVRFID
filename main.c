@@ -93,13 +93,13 @@ void wait (unsigned long time) {
   }
 }
 
-/******************************* CONVERT INPUT *******************************\
-| This function converts the 45 bit input (ints representing bools) into the  |
-| decimal number represented on the card. It strips off the first 28 bits     |
-| and the last bit (the parady bit) and returns a two byte number generated   |
-| with the remaining 16 bits                                                  |
-\*****************************************************************************/
-int convertInput (int array[45]) {
+/*************************** GET UNIQUE ID FROM HEX ***************************\
+| This function converts the 45 bit input (ints representing bools) into the   |
+| decimal number represented on the card. It strips off the first 28 bits      |
+| and the last bit (the parady bit) and returns a two byte number generated    |
+| with the remaining 16 bits                                                   |
+\******************************************************************************/
+int getUniqueIdDecimalFromHex (int array[45]) {
   int result = 0;
   if (array[28]) result += 32768;
   if (array[29]) result += 16348;
