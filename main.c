@@ -57,8 +57,8 @@ void addNames(void) {
   namesize = 2; // number of IDs in the access list
   names = malloc (sizeof(int) * namesize);
   // change or add more IDs after this point
-  names [0] = 12345;
-  names [1] = 67890;
+  names [0] = 46155;
+  names [1] = 56101;
 }
 
 /******************************* INT0 INTERRUPT *******************************\
@@ -152,22 +152,6 @@ void convertRawDataToBinary (char * buffer) {
       buffer[i] = -2;
     }
   }
-  /*
-  for (i = 1; i < ARRAYSIZE; i++) {
-    if (begin[i] == 5) {
-      begin[i] = 0;
-    }
-    else if (begin[i] == 7) {
-      begin[i] = 1;
-    }
-    else if (begin[i] == 6) {
-       begin[i] = begin[i-1];
-    }
-    else {
-      begin[i] = -2;
-    }
-  }
-  */
 }
 /******************************* Analize Input *******************************\
 | analizeInput(void) parses through the global variable and gets the 45 bit   |
@@ -199,22 +183,6 @@ void analizeInput (void) {
   // Convert raw data to binary
   //------------------------------------------
   convertRawDataToBinary (begin);
-  /*
-  for (i = 1; i < ARRAYSIZE; i++) {
-    if (begin[i] == 5) {
-      begin[i] = 0;
-    }
-    else if (begin[i] == 7) {
-      begin[i] = 1;
-    }
-    else if (begin[i] == 6) {
-       begin[i] = begin[i-1];
-    }
-    else {
-      begin[i] = -2;
-    }
-  }
-  /**/
     
   //------------------------------------------
   // Find Start Tag
