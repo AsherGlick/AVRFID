@@ -45,8 +45,7 @@
 #define Whitelist_Enabled         // When a tag is read it will be compaired 
                                   // against a whitelist and one of two functions
                                   // will be run depending on if the id matches
-
-#define Whitelist_Manufacturer_ID //
+                                  
 // These values may need to be changed depending on the servo that you are using
 #define SERVO_OPEN 575    // open signal value for the servo
 #define SERVO_CLOSE 1000  // close signal value for the servo
@@ -54,7 +53,8 @@
 
 
 
-// these settings are used internally by the 
+// these settings are used internally by the program to optimize the settings above
+#ifndef serial
 #define serialOut
 
 
@@ -361,12 +361,16 @@ void analizeInput (void) {
     }
     finalArray_index++;
   }
+  
+  
   #ifdef serialOut
   for (i = 0; i < 44; i++) {
     USART_Transmit(finalArray[i]);
   }
   USART_Transmit(-1);
   #endif
+  
+  
   if (searchTag(getUniqueIdDecimalFromHex (finalArray))){
     PORTB |= 0x04;
     // open the door
@@ -384,7 +388,7 @@ void analizeInput (void) {
     {
       unsigned long i;
       for (i = 0; i < 500000; i++) {
-      asm volatile ("nop");
+        asm volatile ("nop");
       }
     }
     OCR1A = 0;
@@ -395,6 +399,13 @@ void analizeInput (void) {
     wait (5000);
   }
 }
+
+
+void onWhiteListSuccess () {
+}
+void onWhiteListFailure () {
+}
+
 
 /******************************* MAIN FUNCTION *******************************\
 | This is the main function, it initilized the variabls and then waits for    |
