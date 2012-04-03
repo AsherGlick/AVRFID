@@ -29,6 +29,23 @@
 | NOTE: '-c usbtiny' is incorrect if you are using a different programmer      |
 \******************************************************************************/
 
+#define binaryTagOutput
+#define hexTagOutput
+#define decimalTagOutput
+
+#define manufatererIdOutput
+#define siteCodeOutput
+#define uniqueIdOutput
+
+#define whiteListEnabled
+
+
+#define
+
+#define serialOut
+
+
+
 // Custom values
 // These values may need to be changed depending on the servo that you are using
 #define SERVO_OPEN 575    // open signal value for the servo
@@ -71,11 +88,11 @@ void addNames(void) {
 \******************************************************************************/
 ISR(INT0_vect) {
   //Save the value of DEMOD_OUT to prevent re-reading on the same group
-  on =(PINB & 0x01); 
+  on =(PINB & 0x01);
   // if wave is rising (end of the last wave)
   if (on == 1 && lastpulse == 0 ) {
     // write the data to the array and reset the cound
-    begin[iter] = count;
+    begin[iter] = count; 
     count = 0;
     iter = iter + 1;
   }
@@ -149,7 +166,7 @@ void USART_Transmit( int input )
   }
 }
 
-/*************************** GET UNIQUE ID FROM HEX ***************************\
+/*************************** GET DECIMAL FROM BINARY **************************\
 | This function converts the 45 bit input (ints representing bools) into the   |
 | decimal number represented on the card. It strips off the first 28 bits      |
 | and the last bit (the parady bit) and returns a two byte number generated    |
@@ -241,7 +258,9 @@ int findStartTag (char * buffer) {
   return i;
 }
 /************************ PARSE MULTIBIT TO SINGLE BIT ************************\
-|
+| This function takes in the start tag and starts parsing the multi-bit code   |
+| to produce the single bit result in the outputBuffer array the resulting     |
+| code is single bit manchester code                                           |
 \******************************************************************************/
 void parseMultiBitToSingleBit (char * buffer, int startOffset, int outputBuffer[]) {
   int i = startOffset; // the offset value of the start tag
@@ -297,28 +316,20 @@ void analizeInput (void) {
   int finalArray_index = 0;
   
   // Initilize the arrays so that any errors or unchanged values show up as 2s
-  for (i = 0; i < 90; i ++) {
-    resultArray[i] = 2;
-  }
-  for (i = 0; i < 45; i++) {
-    finalArray[i] = 2;
-  }
+  for (i = 0; i < 90; i ++) { resultArray[i] = 2; }
+  for (i = 0; i < 45; i++)  { finalArray[i] = 2;  }
   
-  //------------------------------------------
   // Convert raw data to binary
-  //------------------------------------------
   convertRawDataToBinary (begin);
     
-  //------------------------------------------
   // Find Start Tag
-  //------------------------------------------
   int startOffset = findStartTag(begin);
   PORTB |= 0x10; // turn an led on on pin B5)
-  //------------------------------------------
-  // PARSE TO BIT DATA
-  //------------------------------------------
+  
+  // Parse multibit data to single bit data
   parseMultiBitToSingleBit(begin, startOffset, resultArray);
-  // Error checking
+  
+  // Error checking, see if there are any unset elements of the array
   for (i = 0; i < 88; i++) { // ignore the parody bit ([88] and [89])
     if (resultArray[i] == 2) {
       return;
@@ -341,7 +352,6 @@ void analizeInput (void) {
     }
     finalArray_index++;
   }
-  #define serialOut
   #ifdef serialOut
   for (i = 0; i < 44; i++) {
     USART_Transmit(finalArray[i]);
