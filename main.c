@@ -1,7 +1,7 @@
- /****************************************************************************\ 
- |         This program was written by Asher Glick aglick@tetrakai.com        | 
- |             This program is currently under the GNU GPL licence            |
- \****************************************************************************/
+ /*****************************************************************************\ 
+ |         This program was written by Asher Glick aglick@tetrakai.com         | 
+ |             This program is currently under the GNU GPL licence             |
+ \*****************************************************************************/
 
 /****************** CHIP SETTINGS ******************\
 | This program was designed to run on an ATMEGA328  |
@@ -29,27 +29,36 @@
 | NOTE: '-c usbtiny' is incorrect if you are using a different programmer      |
 \******************************************************************************/
 
-#define binaryTagOutput
-#define hexTagOutput
-#define decimalTagOutput
+/******************************* CUSTOM SETTINGS ******************************\
+| Settings that can be changed, comment or uncomment these #define settings to |
+| make the AVRFID code do different things
+\******************************************************************************/
 
-#define manufatererIdOutput
-#define siteCodeOutput
-#define uniqueIdOutput
+#define Binary_Tag_Output         // Outputs the Read tag in binary over serial
+#define Hexadecimal_Tag_Output    // Outputs the read tag in Hexadecimal over serial
+#define Decimal_Tag_Output        // Outputs the read tag in decimal
 
-#define whiteListEnabled
+#define Manufacturer_ID_Output    // The output will contain the Manufacturer ID
+#define Site_Code_Output          // The output will contain the Site Code
+#define Unique_Id_Output          // The output will contain the Unique ID
 
+#define Whitelist_Enabled         // When a tag is read it will be compaired 
+                                  // against a whitelist and one of two functions
+                                  // will be run depending on if the id matches
 
-#define
-
-#define serialOut
-
-
-
-// Custom values
+#define Whitelist_Manufacturer_ID //
 // These values may need to be changed depending on the servo that you are using
 #define SERVO_OPEN 575    // open signal value for the servo
 #define SERVO_CLOSE 1000  // close signal value for the servo
+
+
+
+
+// these settings are used internally by the 
+#define serialOut
+
+
+/// Begin the includes
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
