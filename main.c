@@ -54,8 +54,9 @@
 
 
 // these settings are used internally by the program to optimize the settings above
-#ifndef serial
-#define serialOut
+#ifndef serialOut
+  #define serialOut
+#endif
 
 
 /// Begin the includes
@@ -216,10 +217,43 @@ int searchTag (int tag) {
   }
   return 0;
 }
+
+
+
+
+void whiteListSuccess () {
+  PORTB |= 0x04;
+  // open the door
+  OCR1A = 10000 - SERVO_OPEN;
+  {
+    unsigned long i;
+    for (i = 0; i < 2500000; i++) {
+      if (!((PINB & (1<<7))>>7)) {
+        break;
+      }
+    }
+  }
+  //close the door
+  OCR1A = 10000 - SERVO_CLOSE;
+  {
+    unsigned long i;
+    for (i = 0; i < 500000; i++) {
+      asm volatile ("nop");
+    }
+  }
+  OCR1A = 0;
+  wait (5000);
+}
+void whiteListFailure () {
+  PORTB |= 0x08;
+  wait (5000);
+}
+
+
+
   //////////////////////////////////////////////////////////////////////////////
  ///////////////////////////// ANALYSIS FUNCTIONS /////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
-
 /************************* CONVERT RAW DATA TO BINARY *************************\
 | Converts the raw 'pulse per wave' count (5,6,or 7) to binary data (0, or 1)  |
 \******************************************************************************/
@@ -372,40 +406,12 @@ void analizeInput (void) {
   
   
   if (searchTag(getUniqueIdDecimalFromHex (finalArray))){
-    PORTB |= 0x04;
-    // open the door
-    OCR1A = 10000 - SERVO_OPEN;
-    {
-      unsigned long i;
-      for (i = 0; i < 2500000; i++) {
-        if (!((PINB & (1<<7))>>7)) {
-          break;
-        }
-      }
-    }
-    //close the door
-    OCR1A = 10000 - SERVO_CLOSE;
-    {
-      unsigned long i;
-      for (i = 0; i < 500000; i++) {
-        asm volatile ("nop");
-      }
-    }
-    OCR1A = 0;
-    wait (5000);
+    whiteListSuccess ();
   }
   else {
-    PORTB |= 0x08;
-    wait (5000);
+    whiteListFailure();
   }
 }
-
-
-void onWhiteListSuccess () {
-}
-void onWhiteListFailure () {
-}
-
 
 /******************************* MAIN FUNCTION *******************************\
 | This is the main function, it initilized the variabls and then waits for    |
