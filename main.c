@@ -38,8 +38,8 @@
 #define Hexadecimal_Tag_Output    // Outputs the read tag in Hexadecimal over serial
 #define Decimal_Tag_Output        // Outputs the read tag in decimal
 
-#define Manufacturer_ID_Output    // The output will contain the Manufacturer ID
-#define Site_Code_Output          // The output will contain the Site Code
+#define Manufacturer_ID_Output    // The output will contain the Manufacturer ID (NOT IMPLEMENTED)
+#define Site_Code_Output          // The output will contain the Site Code       (NOT IMPLEMENTED)
 #define Unique_Id_Output          // The output will contain the Unique ID
 
 #define Whitelist_Enabled         // When a tag is read it will be compaired 
@@ -183,6 +183,11 @@ void USART_Transmit( int input )
 | with the remaining 16 bits                                                   |
 \******************************************************************************/
 int getUniqueIdDecimalFromHex (int array[45]) {
+
+   //20-bit manufacturer code,
+	 //8-bit site code
+	 //16-bit unique id
+	 
   int result = 0;
   if (array[28]) result += 32768;
   if (array[29]) result += 16384;
@@ -202,6 +207,27 @@ int getUniqueIdDecimalFromHex (int array[45]) {
   if (array[43]) result += 1;
   return result;
 }
+
+
+
+
+
+void printDecimal (int array[45]) {
+  #ifdef Unique_Id_Output
+  #endif
+}
+void printHexadecimal (int array[45]) {
+  #ifdef Unique_Id_Output
+  #endif
+}
+void printBinary (int array[45]) {
+  #ifdef Unique_Id_Output
+  
+  #endif
+}
+
+
+
 
 /********************************* Search Tag *********************************\
 | This function searches for a tag in the list of tags stored in the flash     |
@@ -396,21 +422,28 @@ void analizeInput (void) {
     finalArray_index++;
   }
   
-  
-  #ifdef serialOut
+  #ifdef Binary_Tag_Output         // Outputs the Read tag in binary over serial
   for (i = 0; i < 44; i++) {
     USART_Transmit(finalArray[i]);
   }
   USART_Transmit(-1);
   #endif
+    
+  #ifdef Hexadecimal_Tag_Output    // Outputs the read tag in Hexadecimal over serial
+  #endif
+    
+  #ifdef Decimal_Tag_Output
+  #endif
   
   
+  #ifdef Whitelist_Enabled
   if (searchTag(getUniqueIdDecimalFromHex (finalArray))){
     whiteListSuccess ();
   }
   else {
     whiteListFailure();
   }
+  #endif
 }
 
 /******************************* MAIN FUNCTION *******************************\
