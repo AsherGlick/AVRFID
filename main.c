@@ -188,6 +188,7 @@ int getUniqueIdDecimalFromHex (int array[45]) {
 	 //8-bit site code
 	 //16-bit unique id
 	 
+	 /*
   int result = 0;
   if (array[28]) result += 32768;
   if (array[29]) result += 16384;
@@ -205,6 +206,37 @@ int getUniqueIdDecimalFromHex (int array[45]) {
   if (array[41]) result += 4;
   if (array[42]) result += 2;
   if (array[43]) result += 1;
+  return result;*/
+  
+  /*
+  int result = 0;
+  if (array[28]) result += 1<<15;
+  if (array[29]) result += 1<<14;
+  if (array[30]) result += 1<<13;
+  if (array[31]) result += 1<<12;
+  if (array[32]) result += 1<<11;
+  if (array[33]) result += 1<<10;
+  if (array[34]) result += 1<<9;
+  if (array[35]) result += 1<<8;
+  if (array[36]) result += 1<<7;
+  if (array[37]) result += 1<<6;
+  if (array[38]) result += 1<<5;
+  if (array[39]) result += 1<<4;
+  if (array[40]) result += 1<<3;
+  if (array[41]) result += 1<<2;
+  if (array[42]) result += 1<<1;
+  if (array[43]) result += 1<<0;
+  return result;
+  */
+  
+  unsigned int result = 0;
+  int *binary = array+28;
+  int length = 16;
+  int i;
+  for (i = 0; i < length; i++) {
+    result = result<<1;
+    result += binary[i]&0x01;
+  }
   return result;
 }
 
