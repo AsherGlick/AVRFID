@@ -248,13 +248,11 @@ int getDecimalFromBinary (int * array, int length) {
   return result;
   */
   
-  unsigned int result = 0;
-  int *binary = array+28;
-  int length = 16;
+  int result = 0;
   int i;
   for (i = 0; i < length; i++) {
     result = result<<1;
-    result += binary[i]&0x01;
+    result += array[i]&0x01;
   }
   return result;
 }
