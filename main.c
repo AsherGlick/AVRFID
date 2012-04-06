@@ -45,11 +45,27 @@
 #define Whitelist_Enabled         // When a tag is read it will be compaired 
                                   // against a whitelist and one of two functions
                                   // will be run depending on if the id matches
+                                 
+                                 
+                                 // some conststents
                                   
 // These values may need to be changed depending on the servo that you are using
 #define SERVO_OPEN 575    // open signal value for the servo
 #define SERVO_CLOSE 1000  // close signal value for the servo
 
+
+   //20-bit manufacturer code,
+	 //8-bit site code
+	 //16-bit unique id
+
+#define MANUFACTURER_ID_OFFSET 0
+#define MANUFACTURER_ID_LENGTH 20
+
+#define SITE_CODE_OFFSET 20
+#define SITE_CODE_LENGTH 8
+	 
+#define UNIQUE_ID_OFFSET 28
+#define UNIQUE_ID_LENGTH 16
 
 
 
@@ -182,11 +198,7 @@ void USART_Transmit( int input )
 | and the last bit (the parady bit) and returns a two byte number generated    |
 | with the remaining 16 bits                                                   |
 \******************************************************************************/
-int getUniqueIdDecimalFromHex (int array[45]) {
-
-   //20-bit manufacturer code,
-	 //8-bit site code
-	 //16-bit unique id
+int getDecimalFromBinary (int * array, int length) {
 	 
 	 /*
   int result = 0;
@@ -469,7 +481,7 @@ void analizeInput (void) {
   
   
   #ifdef Whitelist_Enabled
-  if (searchTag(getUniqueIdDecimalFromHex (finalArray))){
+  if (searchTag(getDecimalFromBinary(finalArray+UNIQUE_ID_OFFSET,UNIQUE_ID_LENGTH))){
     whiteListSuccess ();
   }
   else {
