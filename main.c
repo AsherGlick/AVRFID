@@ -54,9 +54,9 @@
 #define SERVO_CLOSE 1000  // close signal value for the servo
 
 
-   //20-bit manufacturer code,
-	 //8-bit site code
-	 //16-bit unique id
+//20-bit manufacturer code,
+//8-bit site code
+//16-bit unique id
 
 #define MANUFACTURER_ID_OFFSET 0
 #define MANUFACTURER_ID_LENGTH 20
@@ -191,6 +191,13 @@ void USART_Transmit( int input )
     UDR0 = 'E';
   }
 }
+  //////////////////////////////////////////////////////////////////////////////
+ ////////////////////////// BASE CONVERSION FUNCTIONS /////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+/************************* GET HEXADECIMAL FROM BINARY ************************\
+|
+\******************************************************************************/
+// what should the return values be?
 
 /*************************** GET DECIMAL FROM BINARY **************************\
 | This function converts the 45 bit input (ints representing bools) into the   |
@@ -200,7 +207,7 @@ void USART_Transmit( int input )
 \******************************************************************************/
 int getDecimalFromBinary (int * array, int length) {
 	 
-	 /*
+	/*
   int result = 0;
   if (array[28]) result += 32768;
   if (array[29]) result += 16384;
