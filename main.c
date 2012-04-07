@@ -221,8 +221,42 @@ int getDecimalFromBinary (int * array, int length) {
 
 
 void printDecimal (int array[45]) {
-  #ifdef Unique_Id_Output
+  int i;
+  #ifdef Manufacturer_ID_Output
+  int manufacturerId = getDecimalFromBinary( array + MANUFACTURER_ID_OFFSET,MANUFACTURER_ID_LENGTH);
+  while (manufacturerId > 0) {
+    USART_Transmit('0'+manufacturerId%10);
+    manufacturerId = manufacturerId/10;
+  }
   #endif
+  
+  #ifdef Split_Tags_With
+    USART_Transmit(Split_Tags_With);
+  #endif
+  
+  #ifdef Site_Code_Output
+  
+  int siteCode = getDecimalFromBinary( array + SITE_CODE_OFFSET,SITE_CODE_LENGTH);
+  while (siteCode > 0) {
+    USART_Transmit('0'+siteCode%10);
+    siteCode = siteCode/10;
+  }
+  #endif
+
+  #ifdef Split_Tags_With
+    USART_Transmit(Split_Tags_With);
+  #endif
+
+  #ifdef Unique_Id_Output
+  int uniqueId = getDecimalFromBinary( array + UNIQUE_ID_OFFSET,UNIQUE_ID_LENGTH);
+  while (uniqueId > 0) {
+    USART_Transmit('0'+uniqueId%10);
+    uniqueId = uniqueId/10;
+  }
+  #endif
+  
+  USART_Transmit('\r');
+  USART_Transmit('\n');
 }
 void printHexadecimal (int array[45]) {
   int i;
