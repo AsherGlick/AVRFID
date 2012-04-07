@@ -42,6 +42,8 @@
 #define Site_Code_Output          // The output will contain the Site Code       (NOT IMPLEMENTED)
 #define Unique_Id_Output          // The output will contain the Unique ID
 
+#define Split_Tags_With '-'       // The character to split tags pieces with
+
 #define Whitelist_Enabled         // When a tag is read it will be compaired 
                                   // against a whitelist and one of two functions
                                   // will be run depending on if the id matches
@@ -166,30 +168,11 @@ void USART_Init(void) {
 | are two digits then the message is the first digit followed by the seccond   |
 | If the input is negative then the function will output a newline character   |
 \******************************************************************************/
-void USART_Transmit( int input )
+void USART_Transmit(char input )
 {
-  unsigned char data;
-  if (input == -1) {
-    while ( !( UCSR0A & (1<<UDRE0)) );
-    // Put '\n' into the bufffer to send
-    UDR0 = '\r';
-    //dont continue running the function to prevent outputing E
-    // Wait for empty transmit buffer
-    while ( !( UCSR0A & (1<<UDRE0)) );
-    // Put '\n' into the bufffer to send
-    UDR0 = '\n';
-    //dont continue running the function to prevent outputing E
-    return;
-  }
-  else if (input < 10 && input >= 0) {     
-    while ( !( UCSR0A & (1<<UDRE0)) );
-    data = '0' + input;
-    UDR0 = data;
-  }
-  else {
-    // Output E if the number cannot be outputed
-    UDR0 = 'E';
-  }
+  while ( !( UCSR0A & (1<<UDRE0)) );
+  // Put the value into the regester to send
+  UDR0 = input;
 }
   //////////////////////////////////////////////////////////////////////////////
  ////////////////////////// BASE CONVERSION FUNCTIONS /////////////////////////
@@ -206,10 +189,10 @@ int * getHexFromBinary (int * array, int length, int * result) {
   // 8 / 4 = 2 (5+3) [correct]
   
   for (i = 0; i < resultLength; i++) {
-    result[i*4] = array[i+0] << 0
-                + array[i+1] << 1
-                + array[i+2] << 2
-                + array[i+3] << 3;
+    result[i*4] = (array[i+0] << 0)
+                + (array[i+1] << 1)
+                + (array[i+2] << 2)
+                + (array[i+3] << 3);
   }
   return result;
 }
@@ -217,49 +200,7 @@ int * getHexFromBinary (int * array, int length, int * result) {
 | This function will take in a binary input and return an intiger with the     |
 | corrisponding value, assumed as decimal                                      |
 \******************************************************************************/
-int getDecimalFromBinary (int * array, int length) {
-	 
-	/*
-  int result = 0;
-  if (array[28]) result += 32768;
-  if (array[29]) result += 16384;
-  if (array[30]) result += 8192;
-  if (array[31]) result += 4096;
-  if (array[32]) result += 2048;
-  if (array[33]) result += 1024;
-  if (array[34]) result += 512;
-  if (array[35]) result += 256;
-  if (array[36]) result += 128;
-  if (array[37]) result += 64;
-  if (array[38]) result += 32;
-  if (array[39]) result += 16;
-  if (array[40]) result += 8;
-  if (array[41]) result += 4;
-  if (array[42]) result += 2;
-  if (array[43]) result += 1;
-  return result;*/
-  
-  /*
-  int result = 0;
-  if (array[28]) result += 1<<15;
-  if (array[29]) result += 1<<14;
-  if (array[30]) result += 1<<13;
-  if (array[31]) result += 1<<12;
-  if (array[32]) result += 1<<11;
-  if (array[33]) result += 1<<10;
-  if (array[34]) result += 1<<9;
-  if (array[35]) result += 1<<8;
-  if (array[36]) result += 1<<7;
-  if (array[37]) result += 1<<6;
-  if (array[38]) result += 1<<5;
-  if (array[39]) result += 1<<4;
-  if (array[40]) result += 1<<3;
-  if (array[41]) result += 1<<2;
-  if (array[42]) result += 1<<1;
-  if (array[43]) result += 1<<0;
-  return result;
-  */
-  
+int getDecimalFromBinary (int * array, int length) {  
   int result = 0;
   int i;
   for (i = 0; i < length; i++) {
@@ -282,9 +223,34 @@ void printHexadecimal (int array[45]) {
   #endif
 }
 void printBinary (int array[45]) {
-  #ifdef Unique_Id_Output
-  
+  int i;
+  #ifdef Manufacturer_ID_Output
+  for (i = MANUFACTURER_ID_OFFSET; i < MANUFACTURER_ID_OFFSET+MANUFACTURER_ID_LENGTH; i++) {
+    USART_Transmit('0'+array[i]);
+  }
   #endif
+  
+  #ifdef Split_Tags_With
+    USART_Transmit(Split_Tags_With);
+  #endif
+  
+  #ifdef Site_Code_Output
+  for (i = SITE_CODE_OFFSET; i < SITE_CODE_OFFSET+SITE_CODE_LENGTH; i++) {
+    USART_Transmit('0'+array[i]);
+  }
+  #endif
+
+  #ifdef Split_Tags_With
+    USART_Transmit(Split_Tags_With);
+  #endif
+
+  #ifdef Unique_Id_Output
+  for (i = UNIQUE_ID_OFFSET; i < UNIQUE_ID_OFFSET+UNIQUE_ID_LENGTH; i++) {
+    USART_Transmit('0'+array[i]);
+  }
+  #endif
+  USART_Transmit('\r');
+  USART_Transmit('\n');
 }
 
 
@@ -484,16 +450,15 @@ void analizeInput (void) {
   }
   
   #ifdef Binary_Tag_Output         // Outputs the Read tag in binary over serial
-  for (i = 0; i < 44; i++) {
-    USART_Transmit(finalArray[i]);
-  }
-  USART_Transmit(-1);
+    printBinary (finalArray);
   #endif
     
   #ifdef Hexadecimal_Tag_Output    // Outputs the read tag in Hexadecimal over serial
+    printHexadecimal (finalArray);
   #endif
     
   #ifdef Decimal_Tag_Output
+    printDecimal (finalArray);
   #endif
   
   
