@@ -177,6 +177,10 @@ void USART_Transmit(char input )
   //////////////////////////////////////////////////////////////////////////////
  ////////////////////////// BASE CONVERSION FUNCTIONS /////////////////////////
 //////////////////////////////////////////////////////////////////////////////
+char binaryTohex (int one, int two, int three, int four) {
+  return (one << 0) + (two << 1) + (three << 2) + (four << 3);
+}
+
 /*********************** GET HEX ARRAY FROM BINARY ARRAY **********************\
 |
 \******************************************************************************/
@@ -222,6 +226,9 @@ void printHexadecimal (int array[45]) {
   #ifdef Unique_Id_Output
   #endif
 }
+
+
+
 void printBinary (int array[45]) {
   int i;
   #ifdef Manufacturer_ID_Output
