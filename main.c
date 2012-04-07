@@ -225,9 +225,10 @@ void printDecimal (int array[45]) {
   #endif
 }
 void printHexadecimal (int array[45]) {
+  int i;
   #ifdef Manufacturer_ID_Output
   for (i = MANUFACTURER_ID_OFFSET; i < MANUFACTURER_ID_OFFSET+MANUFACTURER_ID_LENGTH; i+=4) {
-    USART_Transmit('0'+array[i]);
+    USART_Transmit(binaryTohex(array[i],array[i+1],array[i+2],array[i+3]));
   }
   #endif
   
@@ -237,7 +238,7 @@ void printHexadecimal (int array[45]) {
   
   #ifdef Site_Code_Output
   for (i = SITE_CODE_OFFSET; i < SITE_CODE_OFFSET+SITE_CODE_LENGTH; i+=4) {
-    USART_Transmit('0'+array[i]);
+    USART_Transmit(binaryTohex(array[i],array[i+1],array[i+2],array[i+3]));
   }
   #endif
 
@@ -247,7 +248,7 @@ void printHexadecimal (int array[45]) {
 
   #ifdef Unique_Id_Output
   for (i = UNIQUE_ID_OFFSET; i < UNIQUE_ID_OFFSET+UNIQUE_ID_LENGTH; i+=4) {
-    USART_Transmit('0'+array[i]);
+    USART_Transmit(binaryTohex(array[i],array[i+1],array[i+2],array[i+3]));
   }
   #endif
   USART_Transmit('\r');
