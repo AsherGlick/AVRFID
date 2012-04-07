@@ -194,7 +194,7 @@ void USART_Transmit( int input )
   //////////////////////////////////////////////////////////////////////////////
  ////////////////////////// BASE CONVERSION FUNCTIONS /////////////////////////
 //////////////////////////////////////////////////////////////////////////////
-/************************* GET HEXADECIMAL FROM BINARY ************************\
+/*********************** GET HEX ARRAY FROM BINARY ARRAY **********************\
 |
 \******************************************************************************/
 int * getHexFromBinary (int * array, int length, int * result) {
@@ -213,12 +213,9 @@ int * getHexFromBinary (int * array, int length, int * result) {
   }
   return result;
 }
-
 /*************************** GET DECIMAL FROM BINARY **************************\
-| This function converts the 45 bit input (ints representing bools) into the   |
-| decimal number represented on the card. It strips off the first 28 bits      |
-| and the last bit (the parady bit) and returns a two byte number generated    |
-| with the remaining 16 bits                                                   |
+| This function will take in a binary input and return an intiger with the     |
+| corrisponding value, assumed as decimal                                      |
 \******************************************************************************/
 int getDecimalFromBinary (int * array, int length) {
 	 
