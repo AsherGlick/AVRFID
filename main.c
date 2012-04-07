@@ -197,7 +197,22 @@ void USART_Transmit( int input )
 /************************* GET HEXADECIMAL FROM BINARY ************************\
 |
 \******************************************************************************/
-// what should the return values be?
+int * getHexFromBinary (int * array, int length, int * result) {
+  int i;
+  int resultLength = (length+3)/4; // +3 so that the resulting number gets rounded up
+  // 4 / 4 = 1       [correct]
+  // 7 / 4 = 1 (4+3) [still correct]
+  // 5 / 4 = 1       [not rounded up]
+  // 8 / 4 = 2 (5+3) [correct]
+  
+  for (i = 0; i < resultLength; i++) {
+    result[i*4] = array[i+0] << 0
+                + array[i+1] << 1
+                + array[i+2] << 2
+                + array[i+3] << 3;
+  }
+  return result;
+}
 
 /*************************** GET DECIMAL FROM BINARY **************************\
 | This function converts the 45 bit input (ints representing bools) into the   |
