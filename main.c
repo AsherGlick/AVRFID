@@ -38,7 +38,7 @@
 #define Hexadecimal_Tag_Output    // Outputs the read tag in Hexadecimal over serial
 #define Decimal_Tag_Output        // Outputs the read tag in decimal
 
-#define Manufacturer_ID_Output    // The output will contain the Manufacturer ID (NOT IMPLEMENTED)
+//#define Manufacturer_ID_Output    // The output will contain the Manufacturer ID (NOT IMPLEMENTED)
 #define Site_Code_Output          // The output will contain the Site Code       (NOT IMPLEMENTED)
 #define Unique_Id_Output          // The output will contain the Unique ID
 
@@ -218,16 +218,19 @@ int getDecimalFromBinary (int * array, int length) {
 
 
 
-
+void recurseDecimal (unsigned int val) {
+  if (val > 0 ) {
+    recurseDecimal(val/10);
+    USART_Transmit('0'+val%10);
+  }
+  return;
+}
 
 void printDecimal (int array[45]) {
-  int i;
   #ifdef Manufacturer_ID_Output
   int manufacturerId = getDecimalFromBinary( array + MANUFACTURER_ID_OFFSET,MANUFACTURER_ID_LENGTH);
-  while (manufacturerId > 0) {
-    USART_Transmit('0'+manufacturerId%10);
-    manufacturerId = manufacturerId/10;
-  }
+  manufacturerId = getDecimalFromBinary( array + MANUFACTURER_ID_OFFSET,MANUFACTURER_ID_LENGTH);
+  recurseDecimal(manufacturerId);
   #endif
   
   #ifdef Split_Tags_With
@@ -237,10 +240,7 @@ void printDecimal (int array[45]) {
   #ifdef Site_Code_Output
   
   int siteCode = getDecimalFromBinary( array + SITE_CODE_OFFSET,SITE_CODE_LENGTH);
-  while (siteCode > 0) {
-    USART_Transmit('0'+siteCode%10);
-    siteCode = siteCode/10;
-  }
+  recurseDecimal(siteCode);
   #endif
 
   #ifdef Split_Tags_With
@@ -248,11 +248,8 @@ void printDecimal (int array[45]) {
   #endif
 
   #ifdef Unique_Id_Output
-  int uniqueId = getDecimalFromBinary( array + UNIQUE_ID_OFFSET,UNIQUE_ID_LENGTH);
-  while (uniqueId > 0) {
-    USART_Transmit('0'+uniqueId%10);
-    uniqueId = uniqueId/10;
-  }
+  int lastId = getDecimalFromBinary( array + UNIQUE_ID_OFFSET,UNIQUE_ID_LENGTH);
+  recurseDecimal(lastId);
   #endif
   
   USART_Transmit('\r');
