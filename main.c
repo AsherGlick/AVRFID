@@ -177,7 +177,7 @@ void USART_Transmit(char input )
   //////////////////////////////////////////////////////////////////////////////
  ////////////////////////// BASE CONVERSION FUNCTIONS /////////////////////////
 //////////////////////////////////////////////////////////////////////////////
-char binaryTohex (int one, int two, int three, int four) {
+char binaryTohex (int four, int three, int two, int one) {
   int value = (one << 0) + (two << 1) + (three << 2) + (four << 3);
   if (value > 9) return 'A' + value - 10;
   return '0' + value;
