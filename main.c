@@ -178,7 +178,9 @@ void USART_Transmit(char input )
  ////////////////////////// BASE CONVERSION FUNCTIONS /////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 char binaryTohex (int one, int two, int three, int four) {
-  return (one << 0) + (two << 1) + (three << 2) + (four << 3);
+  int value = (one << 0) + (two << 1) + (three << 2) + (four << 3);
+  if (value > 9) return 'A' + value - 10;
+  return '0' + value;
 }
 
 /*********************** GET HEX ARRAY FROM BINARY ARRAY **********************\
@@ -223,8 +225,33 @@ void printDecimal (int array[45]) {
   #endif
 }
 void printHexadecimal (int array[45]) {
-  #ifdef Unique_Id_Output
+  #ifdef Manufacturer_ID_Output
+  for (i = MANUFACTURER_ID_OFFSET; i < MANUFACTURER_ID_OFFSET+MANUFACTURER_ID_LENGTH; i+=4) {
+    USART_Transmit('0'+array[i]);
+  }
   #endif
+  
+  #ifdef Split_Tags_With
+    USART_Transmit(Split_Tags_With);
+  #endif
+  
+  #ifdef Site_Code_Output
+  for (i = SITE_CODE_OFFSET; i < SITE_CODE_OFFSET+SITE_CODE_LENGTH; i+=4) {
+    USART_Transmit('0'+array[i]);
+  }
+  #endif
+
+  #ifdef Split_Tags_With
+    USART_Transmit(Split_Tags_With);
+  #endif
+
+  #ifdef Unique_Id_Output
+  for (i = UNIQUE_ID_OFFSET; i < UNIQUE_ID_OFFSET+UNIQUE_ID_LENGTH; i+=4) {
+    USART_Transmit('0'+array[i]);
+  }
+  #endif
+  USART_Transmit('\r');
+  USART_Transmit('\n');
 }
 
 
