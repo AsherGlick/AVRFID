@@ -34,17 +34,17 @@
 | make the AVRFID code do different things
 \******************************************************************************/
 
-#define Binary_Tag_Output         // Outputs the Read tag in binary over serial
+//#define Binary_Tag_Output         // Outputs the Read tag in binary over serial
 #define Hexadecimal_Tag_Output    // Outputs the read tag in Hexadecimal over serial
-#define Decimal_Tag_Output        // Outputs the read tag in decimal
+//#define Decimal_Tag_Output        // Outputs the read tag in decimal
 
-//#define Manufacturer_ID_Output    // The output will contain the Manufacturer ID (NOT IMPLEMENTED)
+#define Manufacturer_ID_Output    // The output will contain the Manufacturer ID (NOT IMPLEMENTED)
 #define Site_Code_Output          // The output will contain the Site Code       (NOT IMPLEMENTED)
 #define Unique_Id_Output          // The output will contain the Unique ID
 
-#define Split_Tags_With '-'       // The character to split tags pieces with
+//#define Split_Tags_With '-'       // The character to split tags pieces with
 
-#define Whitelist_Enabled         // When a tag is read it will be compaired 
+//#define Whitelist_Enabled         // When a tag is read it will be compaired 
                                   // against a whitelist and one of two functions
                                   // will be run depending on if the id matches
                                  
