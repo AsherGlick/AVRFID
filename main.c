@@ -373,6 +373,7 @@ void whiteListFailure () {
   //////////////////////////////////////////////////////////////////////////////
  ///////////////////////////// ANALYSIS FUNCTIONS /////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
+
 /************************* CONVERT RAW DATA TO BINARY *************************\
 | Converts the raw 'pulse per wave' count (5,6,or 7) to binary data (0, or 1)  |
 \******************************************************************************/
@@ -393,6 +394,7 @@ void convertRawDataToBinary (char * buffer) {
     }
   }
 }
+
 /******************************* FIND START TAG *******************************\
 | This function goes through the buffer and tries to find a group of fifteen   |
 | or more 1's in a row. This sigifies the start tag. If you took the fifteen   |
@@ -419,6 +421,7 @@ int findStartTag (char * buffer) {
   }
   return i;
 }
+
 /************************ PARSE MULTIBIT TO SINGLE BIT ************************\
 | This function takes in the start tag and starts parsing the multi-bit code   |
 | to produce the single bit result in the outputBuffer array the resulting     |
@@ -462,6 +465,7 @@ void parseMultiBitToSingleBit (char * buffer, int startOffset, int outputBuffer[
     }
   }
 }
+
 /******************************* Analize Input *******************************\
 | analizeInput(void) parses through the global variable and gets the 45 bit   |
 | id tag.                                                                     |
