@@ -30,3 +30,4 @@ I. Building and Burning the program
   `sudo avrdude -p m328p -c usbtiny -U flash:w:myproject.hex`
   
   On windows you can usually burn the program the same way
+
